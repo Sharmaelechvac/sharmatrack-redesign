@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHARMATRACK Redesign — Mockups</title>
+<style>
+  :root{ --navy:#264387; --gold:#F0A846; --ink:#14181f; --mut:#4d5560; --line:#e3e7ee; --bg:#eceff4; --green:#177245; --red:#b3261e; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-size:18px; line-height:1.45; }
+  img{ display:block; max-width:100%; }
+
+  /* ---------- mockup shell ---------- */
+  .shell-head{ max-width:1180px; margin:0 auto; padding:28px 18px 6px; }
+  .shell-head h1{ font-size:30px; font-weight:800; letter-spacing:-.02em; color:var(--navy); }
+  .shell-head p{ color:var(--mut); margin-top:6px; max-width:640px; }
+  .switcher{ position:sticky; top:0; z-index:50; background:rgba(236,239,244,.92); backdrop-filter:blur(8px); padding:12px 18px; }
+  .switcher-in{ max-width:1180px; margin:0 auto; display:flex; gap:10px; flex-wrap:wrap; }
+  .swbtn{ flex:1 1 150px; min-height:52px; border:2px solid var(--navy); background:#fff; color:var(--navy); border-radius:14px; font-size:17px; font-weight:700; cursor:pointer; padding:8px 10px; }
+  .swbtn small{ display:block; font-size:13px; font-weight:600; color:var(--mut); }
+  .swbtn.on{ background:var(--navy); color:#fff; }
+  .swbtn.on small{ color:#cfd9ee; }
+  .stage{ max-width:1180px; margin:0 auto; padding:18px; display:flex; justify-content:center; }
+  .dir{ display:none; width:100%; max-width:430px; }
+  .dir.on{ display:block; }
+  .dir-note{ max-width:430px; margin:0 auto 14px; background:#fff; border:1px solid var(--line); border-left:6px solid var(--gold); border-radius:12px; padding:14px 16px; font-size:16px; }
+  .dir-note b{ color:var(--navy); }
+  .phone{ background:#fff; border-radius:22px; box-shadow:0 14px 44px rgba(20,30,60,.20); overflow:hidden; }
+
+  /* ---------- shared bits ---------- */
+  .duo{ display:flex; align-items:center; gap:14px; padding:16px 18px 10px; }
+  .duo .lg-sharma{ height:52px; width:auto; }
+  .duo .lg-builder{ height:40px; width:auto; margin-left:auto; }
+  .pill{ display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:800; letter-spacing:.02em; padding:6px 12px; border-radius:999px; }
+  .pill.done{ background:#e5f3ec; color:var(--green); }
+  .pill.now{ background:#fdf0da; color:#8a5a00; }
+  .pill.next{ background:#eef1f6; color:var(--mut); }
+  .pill.pass{ background:var(--green); color:#fff; }
+  .gal{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .gal figure{ border-radius:14px; overflow:hidden; background:#f2f4f8; }
+  .gal img{ width:100%; height:150px; object-fit:cover; }
+  .gal figcaption{ font-size:14.5px; color:var(--mut); padding:8px 10px 10px; line-height:1.35; }
+  .empty{ border:1.5px dashed #c3ccd9; border-radius:14px; padding:16px; color:var(--mut); font-size:16px; text-align:center; }
+  .tick{ list-style:none; }
+  .tick li{ padding:7px 0 7px 32px; position:relative; font-size:16.5px; }
+  .tick li::before{ content:"✓"; position:absolute; left:2px; top:6px; width:22px; height:22px; border-radius:50%; background:var(--green); color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .tick li.open::before{ content:""; background:#fff; border:2px solid #c3ccd9; }
+  .spec{ width:100%; border-collapse:collapse; }
+  .spec td{ padding:10px 0; border-bottom:1px solid var(--line); font-size:16.5px; vertical-align:top; }
+  .spec td.k{ color:var(--mut); font-weight:600; width:42%; padding-right:10px; }
+  .spec tr:last-child td{ border-bottom:none; }
+  .doc{ display:flex; align-items:center; gap:12px; padding:14px 4px; border-bottom:1px solid var(--line); font-size:16.5px; font-weight:600; min-height:56px; }
+  .doc:last-child{ border-bottom:none; }
+  .doc .meta{ margin-left:auto; font-size:13.5px; color:var(--mut); font-weight:600; text-align:right; }
+  .doc .ic{ width:40px; height:40px; flex:0 0 40px; border-radius:10px; background:#eef2fa; color:var(--navy); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; }
+  .foot{ padding:18px; text-align:center; color:var(--mut); font-size:14px; }
+  .foot b{ color:var(--navy); letter-spacing:.14em; }
+
+  /* ---------- A · Site Walk ---------- */
+  .sw-hero img{ width:100%; height:300px; object-fit:cover; }
+  .sw-status{ padding:16px 18px 4px; }
+  .sw-status .addr{ font-size:15px; font-weight:700; letter-spacing:.08em; color:var(--mut); text-transform:uppercase; }
+  .sw-status h2{ font-size:29px; font-weight:800; letter-spacing:-.02em; margin:4px 0 8px; }
+  .sw-proof{ padding:2px 18px 14px; color:var(--mut); font-size:15.5px; border-bottom:1px solid var(--line); }
+  .sw-proof b{ color:var(--navy); }
+  .sw-body{ display:grid; grid-template-columns:26px 1fr; gap:0 12px; padding:8px 18px 4px; }
+  .sw-rail{ position:relative; }
+  .sw-rail::before{ content:""; position:absolute; left:12px; top:22px; bottom:22px; width:3px; background:var(--line); border-radius:2px; }
+  .sw-dot{ position:relative; z-index:1; width:26px; height:26px; border-radius:50%; margin:22px 0 178px; background:#fff; border:3px solid #c3ccd9; }
+  .sw-dot.done{ background:var(--navy); border-color:var(--navy); }
+  .sw-dot.now{ background:var(--gold); border-color:var(--gold); box-shadow:0 0 0 5px #fdf0da; }
+  .sw-ch{ padding:16px 0 20px; border-bottom:1px solid var(--line); }
+  .sw-ch:last-child{ border-bottom:none; }
+  .sw-ch h3{ font-size:23px; font-weight:800; letter-spacing:-.01em; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .sw-ch .gal{ margin:12px 0; }
+  .sw-sec{ padding:18px; border-top:8px solid #f2f4f8; }
+  .sw-sec h3{ font-size:22px; font-weight:800; margin-bottom:8px; }
+  .insp-row{ display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line); }
+  .insp-row:last-child{ border-bottom:none; }
+  .insp-row .t{ font-weight:700; font-size:17px; }
+  .insp-row .s{ color:var(--mut); font-size:15px; }
+  .insp-row .pill{ margin-left:auto; flex:0 0 auto; }
+
+  /* ---------- B · Control Room ---------- */
+  .cr-panel{ background:var(--navy); color:#fff; padding:20px 18px 22px; }
+  .cr-panel .addr{ font-size:14.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#b9c7e6; }
+  .cr-panel h2{ font-size:31px; font-weight:800; letter-spacing:-.02em; margin:6px 0 4px; }
+  .cr-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .cr-cell{ background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:12px 14px; }
+  .cr-cell .k{ font-size:13px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#b9c7e6; }
+  .cr-cell .v{ font-size:19px; font-weight:800; margin-top:3px; }
+  .cr-cell .s{ font-size:14px; color:#d5ddf0; }
+  .cr-steps{ display:flex; gap:6px; padding:14px 18px 4px; flex-wrap:wrap; }
+  .cr-step{ flex:1 1 30%; text-align:center; font-size:13.5px; font-weight:700; color:var(--mut); padding:9px 4px; border-radius:10px; background:#eef1f6; min-height:48px; display:flex; align-items:center; justify-content:center; }
+  .cr-step.done{ background:var(--navy); color:#fff; }
+  .cr-step.now{ background:var(--gold); color:#231a00; }
+  .cr-sec{ padding:18px; border-top:8px solid #f2f4f8; }
+  .cr-sec h3{ font-size:22px; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .seal{ width:56px; height:56px; flex:0 0 56px; border-radius:50%; background:var(--navy); color:var(--gold); border:3px solid var(--gold); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; text-align:center; line-height:1.1; }
+  .verdict{ display:flex; gap:14px; align-items:center; border:1.5px solid var(--line); border-radius:16px; padding:14px; margin-bottom:12px; }
+  .verdict .t{ font-size:18px; font-weight:800; }
+  .verdict .s{ color:var(--mut); font-size:15px; }
+
+  /* ---------- C · Dossier ---------- */
+  .ds-mast{ padding:22px 18px 0; text-align:center; }
+  .ds-mast .duo{ justify-content:center; padding:0 0 14px; }
+  .ds-mast .duo .lg-builder{ margin-left:0; }
+  .ds-rule{ border:none; border-top:3px double var(--navy); margin:0 18px; }
+  .ds-title{ text-align:center; padding:16px 18px 4px; }
+  .ds-title h2{ font-size:27px; font-weight:800; letter-spacing:-.01em; }
+  .ds-title .sub{ color:var(--mut); font-size:15.5px; margin-top:4px; }
+  .ds-sec{ padding:20px 18px 6px; }
+  .ds-sec .no{ color:var(--gold); font-weight:800; font-size:15px; letter-spacing:.18em; }
+  .ds-sec h3{ font-size:24px; font-weight:800; margin:2px 0 4px; }
+  .ds-sec .status{ color:var(--mut); font-size:16px; margin-bottom:12px; }
+  .ds-sec .status b{ color:var(--green); }
+  .plate{ margin-bottom:14px; }
+  .plate img{ width:100%; height:230px; object-fit:cover; border-radius:6px; }
+  .plate figcaption{ font-size:15px; color:var(--mut); padding:8px 2px 0; }
+  .plate figcaption b{ color:var(--ink); }
+  .rec{ border:1px solid var(--line); border-left:6px solid var(--gold); border-radius:10px; padding:14px 16px; margin-bottom:12px; }
+  .rec .t{ font-weight:800; font-size:17px; }
+  .rec .s{ color:var(--mut); font-size:15px; }
+
+  /* ---------- D · Jarvis Merge ---------- */
+  .jm-head{ padding:18px 18px 0; }
+  .jm-head h2{ font-size:30px; font-weight:800; letter-spacing:-.02em; margin-top:10px; }
+  .jm-updated{ color:var(--mut); font-size:15.5px; margin-top:4px; }
+  .jm-hero{ margin:14px 0 0; }
+  .jm-hero img{ width:100%; height:290px; object-fit:cover; }
+  .jm-hero figcaption{ padding:10px 18px 0; font-size:15.5px; color:var(--mut); }
+  .jm-hero figcaption b{ color:var(--ink); }
+  .jm-sec{ padding:20px 18px 6px; }
+  .jm-sec > h3{ font-size:22px; font-weight:800; margin-bottom:12px; }
+  .stepper{ list-style:none; }
+  .stepper li{ display:flex; align-items:center; gap:12px; min-height:58px; padding:8px 0; border-bottom:1px solid var(--line); }
+  .stepper li:last-child{ border-bottom:none; }
+  .stepper .n{ width:30px; height:30px; flex:0 0 30px; border-radius:50%; background:#eef1f6; color:var(--mut); font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; }
+  .stepper li.done .n{ background:var(--navy); color:#fff; }
+  .stepper li.now .n{ background:var(--gold); color:#231a00; box-shadow:0 0 0 4px #fdf0da; }
+  .stepper .nm{ font-weight:700; font-size:17.5px; }
+  .stepper .dt{ color:var(--mut); font-size:14.5px; }
+  .stepper .pill{ margin-left:auto; }
+  .changed{ background:#f7f9fd; border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
+  .changed div{ padding:5px 0; font-size:16.5px; }
+  .changed b{ color:var(--navy); }
+  .strip{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
+  .strip figure{ flex:0 0 62%; border-radius:14px; overflow:hidden; background:#f2f4f8; }
+  .strip img{ width:100%; height:170px; object-fit:cover; }
+  .strip figcaption{ font-size:14px; color:var(--mut); padding:7px 10px 9px; }
+  .jm-card{ border:1px solid var(--line); border-radius:16px; padding:6px 16px; }
+  .anchorbar{ position:sticky; bottom:0; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); border-top:1px solid var(--line); display:flex; }
+  .anchorbar a{ flex:1; text-align:center; padding:12px 4px 14px; font-size:14.5px; font-weight:700; color:var(--navy); text-decoration:none; min-height:52px; }
+  .anchorbar a.on{ color:#8a5a00; box-shadow:inset 0 3px 0 var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="shell-head">
+  <h1>SHARMATRACK — Redesign Mockups</h1>
+  <p>One real job, four designs: <b>212 Marion Oaks Golf Way</b> (EXJ Root · Florence 1 · Electrical + HVAC). Real photos, real inspections, nothing invented. Tap a direction to view it. Nothing here touches the live trackers.</p>
+</div>
+
+<div class="switcher"><div class="switcher-in">
+  <button class="swbtn on" data-dir="a">A · The Site Walk<small>Claude — photo-led chapters</small></button>
+  <button class="swbtn" data-dir="b">B · The Control Room<small>Claude — status first, verdict seals</small></button>
+  <button class="swbtn" data-dir="c">C · The Builder's Dossier<small>Claude — numbered job record</small></button>
+  <button class="swbtn" data-dir="d">D · The Proof Page<small>Jarvis merge — research + all of it</small></button>
+</div></div>
+
+<div class="stage">
+
+<!-- ================= A · SITE WALK ================= -->
+<section class="dir on" id="dir-a">
+  <div class="dir-note"><b>Direction A — The Site Walk.</b> Opens like walking the job with the GC: one strong photo first, phases as chapters down a progress rail. Photos lead, checklists confirm.</div>
+  <div class="phone">
+    <div class="duo"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <figure class="sw-hero"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete at 212 Marion Oaks Golf Way"></figure>
+    <div class="sw-status">
+      <div class="addr">212 Marion Oaks Golf Way · Ocala, FL</div>
+      <h2>Electrical Rough-in — In Progress</h2>
+      <span class="pill pass">✓ TUG Inspection Passed</span> <span class="pill pass">✓ HVAC Rough Approved</span>
+    </div>
+    <div class="sw-proof"><b>Latest proof:</b> updated Thu Nov 19 · HVAC rough photos added · electric rough started</div>
+    <div class="sw-body">
+      <div class="sw-rail"><div class="sw-dot done"></div><div class="sw-dot done"></div><div class="sw-dot now"></div><div class="sw-dot"></div><div class="sw-dot done"></div><div class="sw-dot"></div></div>
+      <div>
+        <div class="sw-ch">
+          <h3>Electrical Underground <span class="pill done">✓ Complete</span></h3>
+          <div class="gal">
+            <figure><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption>Underground conduit run, in slab</figcaption></figure>
+            <figure><img src="img/212-meter-base-open.jpg" alt="Meter base open"><figcaption>Meter base open — service work</figcaption></figure>
+          </div>
+          <ul class="tick"><li>Conduit run complete</li><li>Grounding in place</li></ul>
+        </div>
+        <div class="sw-ch">
+          <h3>Electrical TUG <span class="pill done">✓ Complete</span></h3>
+          <div class="gal">
+            <figure><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete wide shot"><figcaption>TUG complete — wide shot</figcaption></figure>
+            <figure><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><figcaption>GFCI + grounding at the TUG</figcaption></figure>
+          </div>
+          <ul class="tick"><li>Meter base mounted</li><li>Inspection passed</li></ul>
+        </div>
+        <div class="sw-ch">
+          <h3>Electrical Rough-in <span class="pill now">In progress</span></h3>
+          <div class="empty">Started Thu Nov 19 — photos land here as the crew uploads them.</div>
+        </div>
+        <div class="sw-ch">
+          <h3>Electrical Trim <span class="pill next">Not started</span></h3>
+          <div class="empty">Follows rough-in.</div>
+        </div>
+        <div class="sw-ch">
+          <h3>HVAC Rough <span class="pill done">✓ Complete</span></h3>
+          <div class="gal">
+            <figure><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption>Main trunk run</figcaption></figure>
+            <figure><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><figcaption>Ductwork roughed in</figcaption></figure>
+            <figure><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><figcaption>Air handler area roughed</figcaption></figure>
+            <figure><img src="img/212-hvac-rough-boots.jpg" alt="Supply boots"><figcaption>Supply boots set</figcaption></figure>
+          </div>
+          <ul class="tick"><li>Rough Mechanical inspection — Approved</li></ul>
+        </div>
+        <div class="sw-ch">
+          <h3>HVAC Machine &amp; Trims <span class="pill next">Not started</span></h3>
+          <div class="empty">Machine set + trim after rough-in completes.</div>
+        </div>
+      </div>
+    </div>
+    <div class="sw-sec">
+      <h3>Inspections</h3>
+      <div class="insp-row"><div><div class="t">TUG Preliminary Power Release</div><div class="s">Electrical · Marion County · #261544-2026</div></div><span class="pill pass">✓ PASSED</span></div>
+      <div class="insp-row"><div><div class="t">Rough Mechanical</div><div class="s">HVAC · Thu Nov 19, 2026 · Inspector Randy Johnston</div></div><span class="pill pass">✓ APPROVED</span></div>
+      <div class="insp-row"><div><div class="t">Rough Electric</div><div class="s">Electrical · not yet scheduled</div></div><span class="pill next">◷ SCHEDULED</span></div>
+    </div>
+    <div class="sw-sec">
+      <h3>Job details — Electrical + HVAC</h3>
+      <table class="spec">
+        <tr><td class="k">Plan</td><td>Florence 1</td></tr>
+        <tr><td class="k">Living / Under roof</td><td>2,325 SF / 3,076 SF</td></tr>
+        <tr><td class="k">Permit</td><td>BLDR-26-09-23294</td></tr>
+        <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
+        <tr><td class="k">Meter combo</td><td>Eaton Type BR · Siemens QP interior</td></tr>
+      </table>
+    </div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+  </div>
+</section>
+
+<!-- ================= B · CONTROL ROOM ================= -->
+<section class="dir" id="dir-b">
+  <div class="dir-note"><b>Direction B — The Control Room.</b> Built for the GC who wants the answer in five seconds: a decisive navy status panel, a phase stepper, and inspections as verdict cards with a Passed seal.</div>
+  <div class="phone">
+    <div class="duo"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <div class="cr-panel">
+      <div class="addr">212 Marion Oaks Golf Way · Ocala, FL · Florence 1</div>
+      <h2>Electrical Rough-in — In Progress</h2>
+      <div>4 of 6 phases complete · Updated Thu Nov 19</div>
+      <div class="cr-grid">
+        <div class="cr-cell"><div class="k">Current phase</div><div class="v">Electrical Rough-in</div><div class="s">Started Thu Nov 19</div></div>
+        <div class="cr-cell"><div class="k">Next milestone</div><div class="v">Rough Electric inspection</div><div class="s">Requested when rough-in completes</div></div>
+        <div class="cr-cell"><div class="k">Latest inspection</div><div class="v">Rough Mechanical ✓</div><div class="s">HVAC · Approved Nov 19</div></div>
+        <div class="cr-cell"><div class="k">Photos on page</div><div class="v">10</div><div class="s">Across 3 phases</div></div>
+      </div>
+    </div>
+    <div class="cr-steps">
+      <div class="cr-step done">✓ Underground</div><div class="cr-step done">✓ TUG</div><div class="cr-step now">Rough-in</div>
+      <div class="cr-step">Trim</div><div class="cr-step done">✓ HVAC Rough</div><div class="cr-step">Machine &amp; Trims</div>
+    </div>
+    <div class="cr-sec">
+      <h3>Inspections</h3>
+      <div class="verdict"><div class="seal">PASSED</div><div><div class="t">TUG Preliminary Power Release</div><div class="s">Electrical · Marion County · #261544-2026 · Inspector Prinzi</div></div></div>
+      <div class="verdict"><div class="seal">PASSED</div><div><div class="t">Rough Mechanical — HVAC</div><div class="s">Thu Nov 19, 2026 · Inspector Randy Johnston · Approved 2:43 PM</div></div></div>
+      <div class="verdict"><div class="seal" style="background:#eef1f6;color:var(--mut);border-color:#c3ccd9">NEXT</div><div><div class="t">Rough Electric</div><div class="s">Electrical · not yet scheduled</div></div></div>
+    </div>
+    <div class="cr-sec">
+      <h3>Electrical TUG <span class="pill done">✓ Complete</span></h3>
+      <div class="gal">
+        <figure><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption>TUG complete — wide shot</figcaption></figure>
+        <figure><img src="img/212-meter-base-mounted.jpg" alt="Meter base mounted"><figcaption>Meter base mounted</figcaption></figure>
+      </div>
+      <ul class="tick"><li>Meter base mounted</li><li>GFCI + grounding complete</li><li>Inspection passed</li></ul>
+    </div>
+    <div class="cr-sec">
+      <h3>HVAC Rough <span class="pill done">✓ Complete</span></h3>
+      <div class="gal">
+        <figure><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption>Main trunk run</figcaption></figure>
+        <figure><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><figcaption>Ductwork roughed in</figcaption></figure>
+      </div>
+      <ul class="tick"><li>Duct + line set roughed</li><li>Rough Mechanical — Approved</li></ul>
+    </div>
+    <div class="cr-sec">
+      <h3>Job details — Electrical + HVAC</h3>
+      <table class="spec">
+        <tr><td class="k">Plan</td><td>Florence 1</td></tr>
+        <tr><td class="k">Living / Under roof</td><td>2,325 SF / 3,076 SF</td></tr>
+        <tr><td class="k">Permit</td><td>BLDR-26-09-23294</td></tr>
+        <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
+        <tr><td class="k">Meter combo</td><td>Eaton Type BR · Siemens QP interior</td></tr>
+      </table>
+    </div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+  </div>
+</section>
+
+<!-- ================= C · DOSSIER ================= -->
+<section class="dir" id="dir-c">
+  <div class="dir-note"><b>Direction C — The Builder's Dossier.</b> The page as a formal job record a builder can forward without embarrassment: ruled masthead, spec sheet, numbered sections, photos as plates, documents as record cards.</div>
+  <div class="phone">
+    <div class="ds-mast">
+      <div class="duo"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
+    </div>
+    <hr class="ds-rule">
+    <div class="ds-title">
+      <h2>212 Marion Oaks Golf Way</h2>
+      <div class="sub">Ocala, FL 34473 · EXJ Root LLC · Trade: Electrical + HVAC</div>
+    </div>
+    <div class="ds-sec">
+      <table class="spec">
+        <tr><td class="k">Plan</td><td>Florence 1</td></tr>
+        <tr><td class="k">Living SF</td><td>2,325 SF</td></tr>
+        <tr><td class="k">Under Roof SF</td><td>3,076 SF</td></tr>
+        <tr><td class="k">Permit</td><td>BLDR-26-09-23294 · Parcel 8005-0758-11</td></tr>
+        <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
+        <tr><td class="k">Record updated</td><td>Thu Nov 19, 2026</td></tr>
+      </table>
+    </div>
+    <div class="ds-sec">
+      <div class="no">01</div><h3>Electrical Underground</h3>
+      <div class="status">Status: <b>Complete</b></div>
+      <figure class="plate"><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption><b>Plate 1.</b> Underground conduit run, in slab.</figcaption></figure>
+    </div>
+    <div class="ds-sec">
+      <div class="no">02</div><h3>Electrical TUG</h3>
+      <div class="status">Status: <b>Complete</b> · Inspection <b>Passed</b> (#261544-2026)</div>
+      <figure class="plate"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption><b>Plate 2.</b> TUG complete — wide shot of the finished install.</figcaption></figure>
+      <figure class="plate"><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><figcaption><b>Plate 3.</b> GFCI device and grounding at the TUG.</figcaption></figure>
+    </div>
+    <div class="ds-sec">
+      <div class="no">03</div><h3>Electrical Rough-in</h3>
+      <div class="status">Status: <b>In progress</b> — started Thu Nov 19, 2026. Plates are added as work is photographed.</div>
+    </div>
+    <div class="ds-sec">
+      <div class="no">04</div><h3>HVAC Rough</h3>
+      <div class="status">Status: <b>Complete</b> · Rough Mechanical <b>Approved</b> Nov 19, 2026 — Inspector Randy Johnston</div>
+      <figure class="plate"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption><b>Plate 4.</b> Main trunk run.</figcaption></figure>
+      <figure class="plate"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><figcaption><b>Plate 5.</b> Air handler area roughed in.</figcaption></figure>
+    </div>
+    <div class="ds-sec">
+      <div class="no">05</div><h3>Prints &amp; Documents</h3>
+      <div class="rec"><div class="t">Master Drawing — Florence 1</div><div class="s">9 sheets · incl. Electrical Plan A7 + 200A riser</div></div>
+      <div class="rec"><div class="t">Engineered Plans — Florence 1, sealed</div><div class="s">9 sheets</div></div>
+      <div class="rec"><div class="t">Wiring Drawings — D6</div><div class="s">Draft — not for construction</div></div>
+      <div class="rec"><div class="t">Energy Calc — Florence 1</div><div class="s">Covers all Florence houses</div></div>
+    </div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+  </div>
+</section>
+
+<!-- ================= D · JARVIS MERGE ================= -->
+<section class="dir" id="dir-d">
+  <div class="dir-note"><b>Direction D — The Proof Page (my merge, recommended).</b> Research skeleton + the best of A–C: photo-first like the Site Walk, the Control Room's verdict cards, the Dossier's discipline — on the research numbers: 18px base, 48px+ targets, status as icon + word + date, sticky thumb-zone anchor bar.</div>
+  <div class="phone">
+    <div class="duo"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <div class="jm-head">
+      <span class="pill now">● ELECTRICAL ROUGH-IN — IN PROGRESS</span>
+      <h2>212 Marion Oaks Golf Way</h2>
+      <div class="jm-updated">Ocala, FL · Florence 1 · EXJ Root · Updated Thu Nov 19, 2026</div>
+    </div>
+    <figure class="jm-hero"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete at 212"><figcaption><b>TUG complete.</b> Temporary power is in and passed — the house is live for the trades.</figcaption></figure>
+    <div class="jm-sec">
+      <h3>Progress — 4 of 6 phases complete</h3>
+      <ul class="stepper">
+        <li class="done"><span class="n">✓</span><div><div class="nm">Electrical Underground</div><div class="dt">Complete</div></div><span class="pill done">DONE</span></li>
+        <li class="done"><span class="n">✓</span><div><div class="nm">Electrical TUG</div><div class="dt">Complete · inspection passed</div></div><span class="pill done">DONE</span></li>
+        <li class="now"><span class="n">3</span><div><div class="nm">Electrical Rough-in</div><div class="dt">Started Thu Nov 19</div></div><span class="pill now">IN PROGRESS</span></li>
+        <li><span class="n">4</span><div><div class="nm">Electrical Trim</div><div class="dt">After rough-in</div></div><span class="pill next">UP NEXT</span></li>
+        <li class="done"><span class="n">✓</span><div><div class="nm">HVAC Rough</div><div class="dt">Complete · inspection approved Nov 19</div></div><span class="pill done">DONE</span></li>
+        <li><span class="n">6</span><div><div class="nm">HVAC Machine &amp; Trims</div><div class="dt">After rough-in</div></div><span class="pill next">UP NEXT</span></li>
+      </ul>
+    </div>
+    <div class="jm-sec">
+      <h3>What changed</h3>
+      <div class="changed">
+        <div><b>Thu Nov 19</b> — HVAC Rough inspection approved; electric rough-in started.</div>
+        <div><b>This week</b> — TUG inspection passed; temporary power live.</div>
+        <div><b>Next</b> — Rough Electric inspection, requested when rough-in completes.</div>
+      </div>
+    </div>
+    <div class="jm-sec">
+      <h3>Latest photos</h3>
+      <div class="strip">
+        <figure><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption>HVAC Rough · Main trunk run</figcaption></figure>
+        <figure><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><figcaption>HVAC Rough · Ductwork roughed in</figcaption></figure>
+        <figure><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><figcaption>Electrical TUG · GFCI + grounding</figcaption></figure>
+      </div>
+    </div>
+    <div class="jm-sec">
+      <h3>Electrical Underground <span class="pill done">✓ DONE</span></h3>
+      <div class="gal">
+        <figure><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption>Underground conduit run, in slab</figcaption></figure>
+        <figure><img src="img/212-meter-base-open.jpg" alt="Meter base open"><figcaption>Meter base open — service work</figcaption></figure>
+      </div>
+    </div>
+    <div class="jm-sec">
+      <h3>Electrical TUG <span class="pill done">✓ DONE</span></h3>
+      <div class="gal">
+        <figure><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption>TUG complete — wide shot</figcaption></figure>
+        <figure><img src="img/212-meter-base-mounted.jpg" alt="Meter base mounted"><figcaption>Meter base mounted</figcaption></figure>
+      </div>
+      <ul class="tick"><li>Meter base mounted</li><li>GFCI + grounding complete</li><li>Inspection passed</li></ul>
+    </div>
+    <div class="jm-sec">
+      <h3>HVAC Rough <span class="pill done">✓ DONE</span></h3>
+      <div class="gal">
+        <figure><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><figcaption>Air handler area roughed</figcaption></figure>
+        <figure><img src="img/212-hvac-rough-boots.jpg" alt="Supply boots"><figcaption>Supply boots set</figcaption></figure>
+      </div>
+    </div>
+    <div class="jm-sec">
+      <h3>Inspections</h3>
+      <div class="jm-card">
+        <div class="insp-row"><div><div class="t">TUG Preliminary Power Release</div><div class="s">Electrical · Marion County · #261544-2026 · Inspector Prinzi</div></div><span class="pill pass">✓ PASSED</span></div>
+        <div class="insp-row"><div><div class="t">Rough Mechanical</div><div class="s">HVAC · Thu Nov 19, 2026 · Inspector Randy Johnston</div></div><span class="pill pass">✓ APPROVED</span></div>
+        <div class="insp-row"><div><div class="t">Rough Electric</div><div class="s">Electrical · not yet scheduled</div></div><span class="pill next">◷ AWAITING</span></div>
+      </div>
+    </div>
+    <div class="jm-sec">
+      <h3>Prints &amp; plans</h3>
+      <div class="doc"><span class="ic">PDF</span>Master Drawing — Florence 1<span class="meta">9 sheets</span></div>
+      <div class="doc"><span class="ic">PDF</span>Engineered Plans — Florence 1, sealed<span class="meta">9 sheets</span></div>
+      <div class="doc"><span class="ic">PDF</span>Wiring Drawings — D6<span class="meta">Draft</span></div>
+      <div class="doc"><span class="ic">PDF</span>Energy Calc — Florence 1<span class="meta">All Florence houses</span></div>
+    </div>
+    <div class="jm-sec">
+      <h3>Job details — Electrical + HVAC</h3>
+      <div class="jm-card" style="padding:6px 16px">
+        <table class="spec">
+          <tr><td class="k">Plan</td><td>Florence 1</td></tr>
+          <tr><td class="k">Living / Under roof</td><td>2,325 SF / 3,076 SF</td></tr>
+          <tr><td class="k">Permit</td><td>BLDR-26-09-23294</td></tr>
+          <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
+          <tr><td class="k">Meter combo</td><td>Eaton Type BR · Siemens QP interior</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+    <nav class="anchorbar"><a href="#" class="on">Overview</a><a href="#">Photos</a><a href="#">Inspections</a><a href="#">Plans</a></nav>
+  </div>
+</section>
+
+</div>
+
+<script>
+  var btns = document.querySelectorAll('.swbtn');
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    btns.forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    document.querySelectorAll('.dir').forEach(function(d){ d.classList.remove('on'); });
+    document.getElementById('dir-' + b.getAttribute('data-dir')).classList.add('on');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }); });
+</script>
+</body>
+</html>
