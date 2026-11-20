@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SHARMATRACK Redesign — Mockups v2</title>
+<title>SHARMATRACK Redesign — Mockups v3</title>
 <style>
   :root{ --navy:#264387; --gold:#F0A846; --ink:#14181f; --mut:#4d5560; --line:#e3e7ee; --green:#177245; }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -11,7 +11,7 @@
   img{ display:block; max-width:100%; }
   .shell-head{ max-width:1180px; margin:0 auto; padding:28px 18px 6px; }
   .shell-head h1{ font-size:30px; font-weight:800; letter-spacing:-.02em; color:var(--navy); }
-  .shell-head p{ color:#3c4654; margin-top:6px; max-width:660px; }
+  .shell-head p{ color:#3c4654; margin-top:6px; max-width:680px; }
   .switcher{ position:sticky; top:0; z-index:50; background:rgba(223,227,234,.94); backdrop-filter:blur(8px); padding:12px 18px; }
   .switcher-in{ max-width:1180px; margin:0 auto; display:flex; gap:10px; flex-wrap:wrap; }
   .swbtn{ flex:1 1 150px; min-height:52px; border:2px solid var(--navy); background:#fff; color:var(--navy); border-radius:14px; font-size:17px; font-weight:700; cursor:pointer; padding:8px 10px; }
@@ -24,392 +24,295 @@
   .dir-note{ margin:0 auto 14px; background:#fff; border:1px solid var(--line); border-left:6px solid var(--gold); border-radius:12px; padding:14px 16px; font-size:16px; }
   .dir-note b{ color:var(--navy); }
   .phone{ border-radius:22px; box-shadow:0 14px 44px rgba(20,30,60,.25); overflow:hidden; }
-  .duo{ display:flex; align-items:center; gap:14px; padding:16px 18px 10px; }
-  .duo .lg-sharma{ height:52px; width:auto; }
-  .duo .lg-builder{ height:40px; width:auto; margin-left:auto; }
-
-  /* ===== A · THE WALK — full-bleed photo journal ===== */
-  .a-phone{ background:#fff; }
-  .a-logos{ display:flex; align-items:center; padding:14px 16px; }
-  .a-logos .lg-sharma{ height:46px; } .a-logos .lg-builder{ height:34px; margin-left:auto; }
-  .a-title{ padding:2px 16px 14px; }
-  .a-title h2{ font-size:26px; font-weight:800; letter-spacing:-.02em; }
-  .a-title .sub{ color:var(--mut); font-size:15.5px; }
-  .a-now{ background:var(--navy); color:#fff; padding:12px 16px; font-size:17px; font-weight:700; }
-  .a-now span{ color:var(--gold); }
-  .a-chapter{ padding:26px 16px 10px; }
-  .a-chapter .k{ font-size:13px; font-weight:800; letter-spacing:.22em; color:#8a5a00; }
-  .a-chapter h3{ font-size:25px; font-weight:800; letter-spacing:-.01em; margin-top:2px; }
-  .a-chapter .st{ font-size:16px; color:var(--mut); }
-  .a-chapter .st b{ color:var(--green); }
-  .a-shot img{ width:100%; height:320px; object-fit:cover; }
-  .a-shot figcaption{ padding:10px 16px 4px; font-size:16.5px; }
-  .a-shot figcaption .d{ display:block; font-size:13.5px; font-weight:700; letter-spacing:.1em; color:var(--mut); text-transform:uppercase; margin-bottom:2px; }
-  .a-pair{ display:grid; grid-template-columns:1fr 1fr; gap:3px; }
-  .a-pair img{ width:100%; height:190px; object-fit:cover; }
-  .a-paircap{ padding:8px 16px 2px; font-size:15px; color:var(--mut); }
-  .a-ticks{ padding:8px 16px 4px; font-size:16.5px; }
-  .a-ticks div{ padding:3px 0; } .a-ticks b{ color:var(--green); }
-  .a-wait{ margin:4px 16px; border:1.5px dashed #c3ccd9; border-radius:12px; padding:14px; color:var(--mut); font-size:16px; text-align:center; }
-  .a-insp{ padding:6px 16px 10px; }
-  .a-insp .row{ padding:12px 0; border-bottom:1px solid var(--line); }
-  .a-insp .row:last-child{ border-bottom:none; }
-  .a-insp .t{ font-size:17.5px; font-weight:700; }
-  .a-insp .s{ color:var(--mut); font-size:15px; }
-  .a-insp .v{ font-weight:800; } .a-insp .v.pass{ color:var(--green); } .a-insp .v.wait{ color:#8a5a00; }
-  .a-facts{ padding:6px 16px 16px; font-size:16.5px; }
-  .a-facts div{ padding:7px 0; border-bottom:1px solid var(--line); display:flex; }
-  .a-facts div:last-child{ border-bottom:none; }
-  .a-facts .k{ color:var(--mut); width:44%; }
-  .a-foot{ padding:16px; text-align:center; color:var(--mut); font-size:14px; }
-  .a-foot b{ color:var(--navy); letter-spacing:.14em; }
-
-  /* ===== B · CONTROL ROOM — dark ops console ===== */
-  .b-phone{ background:#0c1730; color:#e9eef8; }
-  .b-top{ display:flex; align-items:center; padding:16px 16px 6px; gap:12px; }
-  .b-top .lg-sharma{ height:38px; background:#fff; border-radius:8px; padding:4px 8px; }
-  .b-top .lg-builder{ height:30px; background:#fff; border-radius:8px; padding:4px 8px; margin-left:auto; }
-  .b-addr{ padding:8px 16px 0; font-size:13px; font-weight:700; letter-spacing:.14em; color:#8fa5cf; text-transform:uppercase; }
-  .b-now{ padding:2px 16px 0; font-size:27px; font-weight:800; letter-spacing:-.01em; }
-  .b-now em{ font-style:normal; color:var(--gold); }
-  .b-seg{ display:flex; gap:5px; padding:14px 16px 4px; }
-  .b-seg i{ flex:1; height:10px; border-radius:5px; background:#26355c; }
-  .b-seg i.done{ background:#3f7d5a; } .b-seg i.now{ background:var(--gold); }
-  .b-segcap{ padding:4px 16px 10px; font-size:14px; color:#aebadd; }
-  .b-stats{ display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:8px 16px; }
-  .b-stat{ background:#132243; border:1px solid #22345f; border-radius:14px; padding:14px; }
-  .b-stat .n{ font-size:34px; font-weight:800; letter-spacing:-.02em; }
-  .b-stat .n.gold{ color:var(--gold); } .b-stat .n.grn{ color:#4cc38a; }
-  .b-stat .k{ font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#8fa5cf; margin-top:2px; }
-  .b-stat .s{ font-size:14px; color:#c3cfe8; margin-top:3px; }
-  .b-h{ padding:20px 16px 8px; font-size:13.5px; font-weight:800; letter-spacing:.18em; color:#8fa5cf; text-transform:uppercase; }
-  .b-insp{ margin:0 16px; }
-  .b-insp .row{ background:#132243; border:1px solid #22345f; border-left:6px solid #3f7d5a; border-radius:12px; padding:13px 14px; margin-bottom:10px; }
-  .b-insp .row.wait{ border-left-color:var(--gold); }
-  .b-insp .t{ font-size:17.5px; font-weight:800; }
-  .b-insp .s{ font-size:14.5px; color:#aebadd; }
-  .b-insp .v{ float:right; font-weight:800; font-size:15px; } .b-insp .v.pass{ color:#4cc38a; } .b-insp .v.wait{ color:var(--gold); }
-  .b-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; padding:0 16px; }
-  .b-grid img{ width:100%; height:104px; object-fit:cover; border-radius:8px; }
-  .b-gridcap{ padding:7px 16px 2px; font-size:14px; color:#aebadd; }
-  .b-rows{ padding:4px 16px 14px; }
-  .b-rows .r{ display:flex; padding:11px 0; border-bottom:1px solid #1d2c50; font-size:16px; }
-  .b-rows .r:last-child{ border-bottom:none; }
-  .b-rows .k{ color:#8fa5cf; width:44%; }
-  .b-foot{ padding:16px; text-align:center; color:#5f719c; font-size:13.5px; }
-  .b-foot b{ color:#c3cfe8; letter-spacing:.14em; }
-
-  /* ===== C · DOSSIER — paper record, serif ===== */
-  .c-phone{ background:#faf6ec; color:#23201a; font-family:Georgia,"Times New Roman",serif; }
-  .c-mast{ padding:24px 22px 0; text-align:center; }
-  .c-mast .row{ display:flex; justify-content:center; align-items:center; gap:18px; }
-  .c-mast .lg-sharma{ height:50px; } .c-mast .lg-builder{ height:36px; }
-  .c-mast .firm{ margin-top:12px; font-size:13px; letter-spacing:.3em; text-transform:uppercase; color:#6d6455; }
-  .c-rule{ border:none; border-top:1px solid #23201a; margin:14px 22px 0; }
-  .c-rule2{ border:none; border-top:3px double #23201a; margin:3px 22px 0; }
-  .c-title{ text-align:center; padding:18px 22px 2px; }
-  .c-title h2{ font-size:28px; font-weight:700; }
-  .c-title .sub{ font-style:italic; color:#6d6455; font-size:16px; margin-top:3px; }
-  .c-sec{ padding:20px 22px 4px; }
-  .c-sec .no{ color:#b07f1e; font-size:14px; letter-spacing:.24em; font-weight:700; }
-  .c-sec h3{ font-size:23px; font-weight:700; margin:2px 0 3px; }
-  .c-sec .status{ font-style:italic; color:#55503f; font-size:16.5px; margin-bottom:12px; }
-  .c-plate{ margin-bottom:16px; }
-  .c-plate img{ width:100%; height:240px; object-fit:cover; border:1px solid #d8d0ba; padding:5px; background:#fff; }
-  .c-plate figcaption{ font-size:15px; color:#55503f; padding-top:7px; }
-  .c-plate figcaption b{ color:#23201a; }
-  .c-spec{ width:100%; border-collapse:collapse; font-size:16.5px; }
-  .c-spec td{ padding:8px 0; border-bottom:1px solid #ddd5bf; vertical-align:top; }
-  .c-spec td.k{ font-style:italic; color:#6d6455; width:42%; }
-  .c-spec tr:last-child td{ border-bottom:none; }
-  .c-rec{ border-bottom:1px solid #ddd5bf; padding:11px 0; }
-  .c-rec:last-child{ border-bottom:none; }
-  .c-rec .t{ font-size:17px; font-weight:700; }
-  .c-rec .s{ font-style:italic; color:#55503f; font-size:15px; }
-  .c-foot{ padding:20px; text-align:center; color:#6d6455; font-size:13.5px; letter-spacing:.18em; text-transform:uppercase; }
-
-  /* ===== D · PROOF PAGE — clean app (merge) ===== */
-  .d-phone{ background:#fff; }
-  .pill{ display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:800; letter-spacing:.02em; padding:6px 12px; border-radius:999px; }
-  .pill.done{ background:#e5f3ec; color:var(--green); }
-  .pill.now{ background:#fdf0da; color:#8a5a00; }
-  .pill.next{ background:#eef1f6; color:var(--mut); }
-  .pill.pass{ background:var(--green); color:#fff; }
-  .gal{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .gal figure{ border-radius:14px; overflow:hidden; background:#f2f4f8; }
-  .gal img{ width:100%; height:150px; object-fit:cover; }
-  .gal figcaption{ font-size:14.5px; color:var(--mut); padding:8px 10px 10px; line-height:1.35; }
-  .tick{ list-style:none; }
-  .tick li{ padding:7px 0 7px 32px; position:relative; font-size:16.5px; }
-  .tick li::before{ content:"✓"; position:absolute; left:2px; top:6px; width:22px; height:22px; border-radius:50%; background:var(--green); color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; }
-  .spec{ width:100%; border-collapse:collapse; }
-  .spec td{ padding:10px 0; border-bottom:1px solid var(--line); font-size:16.5px; vertical-align:top; }
-  .spec td.k{ color:var(--mut); font-weight:600; width:42%; padding-right:10px; }
-  .spec tr:last-child td{ border-bottom:none; }
-  .doc{ display:flex; align-items:center; gap:12px; padding:14px 4px; border-bottom:1px solid var(--line); font-size:16.5px; font-weight:600; min-height:56px; }
-  .doc:last-child{ border-bottom:none; }
-  .doc .meta{ margin-left:auto; font-size:13.5px; color:var(--mut); font-weight:600; text-align:right; }
-  .doc .ic{ width:40px; height:40px; flex:0 0 40px; border-radius:10px; background:#eef2fa; color:var(--navy); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; }
-  .insp-row{ display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line); }
-  .insp-row:last-child{ border-bottom:none; }
-  .insp-row .t{ font-weight:700; font-size:17px; }
-  .insp-row .s{ color:var(--mut); font-size:15px; }
-  .insp-row .pill{ margin-left:auto; flex:0 0 auto; }
-  .jm-head{ padding:18px 18px 0; }
-  .jm-head h2{ font-size:30px; font-weight:800; letter-spacing:-.02em; margin-top:10px; }
-  .jm-updated{ color:var(--mut); font-size:15.5px; margin-top:4px; }
-  .jm-hero img{ width:100%; height:290px; object-fit:cover; }
-  .jm-hero figcaption{ padding:10px 18px 0; font-size:15.5px; color:var(--mut); }
-  .jm-hero figcaption b{ color:var(--ink); }
-  .jm-sec{ padding:20px 18px 6px; }
-  .jm-sec > h3{ font-size:22px; font-weight:800; margin-bottom:12px; }
-  .stepper{ list-style:none; }
-  .stepper li{ display:flex; align-items:center; gap:12px; min-height:58px; padding:8px 0; border-bottom:1px solid var(--line); }
-  .stepper li:last-child{ border-bottom:none; }
-  .stepper .n{ width:30px; height:30px; flex:0 0 30px; border-radius:50%; background:#eef1f6; color:var(--mut); font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; }
-  .stepper li.done .n{ background:var(--navy); color:#fff; }
-  .stepper li.now .n{ background:var(--gold); color:#231a00; box-shadow:0 0 0 4px #fdf0da; }
-  .stepper .nm{ font-weight:700; font-size:17.5px; }
-  .stepper .dt{ color:var(--mut); font-size:14.5px; }
-  .stepper .pill{ margin-left:auto; }
-  .changed{ background:#f7f9fd; border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
-  .changed div{ padding:5px 0; font-size:16.5px; }
-  .changed b{ color:var(--navy); }
-  .strip{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
-  .strip figure{ flex:0 0 62%; border-radius:14px; overflow:hidden; background:#f2f4f8; }
-  .strip img{ width:100%; height:170px; object-fit:cover; }
-  .strip figcaption{ font-size:14px; color:var(--mut); padding:7px 10px 9px; }
-  .jm-card{ border:1px solid var(--line); border-radius:16px; padding:6px 16px; }
-  .anchorbar{ position:sticky; bottom:0; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); border-top:1px solid var(--line); display:flex; }
-  .anchorbar a{ flex:1; text-align:center; padding:12px 4px 14px; font-size:14.5px; font-weight:700; color:var(--navy); text-decoration:none; min-height:52px; }
-  .anchorbar a.on{ color:#8a5a00; box-shadow:inset 0 3px 0 var(--gold); }
-  .foot{ padding:18px; text-align:center; color:var(--mut); font-size:14px; }
+  .foot{ padding:16px; text-align:center; color:var(--mut); font-size:14px; }
   .foot b{ color:var(--navy); letter-spacing:.14em; }
+
+  /* ===== A · THE STORY — timeline feed ===== */
+  .a-phone{ background:#f4f5f7; }
+  .a-bar{ background:#fff; padding:14px 16px 12px; border-bottom:1px solid var(--line); }
+  .a-bar .row{ display:flex; align-items:center; gap:10px; }
+  .a-bar .lg{ height:34px; } .a-bar .lg2{ height:26px; margin-left:auto; }
+  .a-bar h2{ font-size:21px; font-weight:800; letter-spacing:-.01em; margin-top:8px; }
+  .a-bar .sub{ font-size:14.5px; color:var(--mut); }
+  .a-chips{ display:flex; gap:8px; padding:12px 16px 2px; overflow-x:auto; }
+  .a-chip{ flex:0 0 auto; padding:9px 15px; border-radius:999px; background:#fff; border:1.5px solid #ccd3de; font-size:15px; font-weight:700; color:var(--mut); }
+  .a-chip.on{ background:var(--navy); border-color:var(--navy); color:#fff; }
+  .a-chip.done{ border-color:var(--green); color:var(--green); }
+  .a-feed{ padding:12px 12px 4px; }
+  .a-ev{ background:#fff; border-radius:18px; overflow:hidden; margin-bottom:14px; box-shadow:0 2px 10px rgba(20,30,60,.06); }
+  .a-ev .hd{ display:flex; align-items:center; gap:10px; padding:12px 14px; }
+  .a-ev .av{ width:38px; height:38px; border-radius:50%; background:var(--navy); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; flex:0 0 38px; }
+  .a-ev .who{ font-weight:700; font-size:16px; line-height:1.2; }
+  .a-ev .when{ font-size:13.5px; color:var(--mut); }
+  .a-ev .tag{ margin-left:auto; font-size:12.5px; font-weight:800; letter-spacing:.06em; padding:5px 9px; border-radius:7px; background:#eef1f6; color:var(--navy); text-transform:uppercase; }
+  .a-ev .tag.pass{ background:#e5f3ec; color:var(--green); }
+  .a-ev img{ width:100%; height:290px; object-fit:cover; }
+  .a-ev .tx{ padding:12px 14px 14px; font-size:16.5px; }
+  .a-ev .tx b{ color:var(--navy); }
+  .a-ev .duo2{ display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+  .a-ev .duo2 img{ height:180px; }
+  .a-day{ text-align:center; font-size:13px; font-weight:800; letter-spacing:.12em; color:var(--mut); text-transform:uppercase; padding:8px 0 12px; }
+
+  /* ===== B · THE HOUSE — diagram first ===== */
+  .b-phone{ background:#fff; }
+  .b-bar{ display:flex; align-items:center; padding:14px 16px 6px; gap:10px; }
+  .b-bar .lg{ height:38px; } .b-bar .lg2{ height:28px; margin-left:auto; }
+  .b-title{ padding:2px 16px 0; }
+  .b-title h2{ font-size:24px; font-weight:800; letter-spacing:-.01em; }
+  .b-title .sub{ color:var(--mut); font-size:15px; }
+  .b-diagram{ padding:10px 8px 0; }
+  .b-legend{ display:flex; gap:14px; justify-content:center; padding:8px 16px 2px; font-size:14px; color:var(--mut); flex-wrap:wrap; }
+  .b-legend i{ display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:5px; }
+  .b-sys{ padding:12px 16px 4px; }
+  .b-sys .row{ display:flex; align-items:center; gap:12px; padding:13px 2px; border-bottom:1px solid var(--line); min-height:56px; }
+  .b-sys .row:last-child{ border-bottom:none; }
+  .b-sys .dot{ width:14px; height:14px; border-radius:50%; flex:0 0 14px; }
+  .b-sys .nm{ font-weight:700; font-size:17.5px; }
+  .b-sys .st{ margin-left:auto; font-size:14.5px; font-weight:700; text-align:right; }
+  .b-sys .row.sel{ background:#fdf6e7; border-radius:12px; padding-left:10px; padding-right:10px; }
+  .b-photos{ padding:6px 16px 10px; }
+  .b-photos .cap{ font-size:14.5px; font-weight:800; letter-spacing:.08em; color:#8a5a00; text-transform:uppercase; margin-bottom:8px; }
+  .b-photos .grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .b-photos figure{ border-radius:12px; overflow:hidden; background:#f2f4f8; }
+  .b-photos img{ width:100%; height:130px; object-fit:cover; }
+  .b-photos figcaption{ font-size:13.5px; color:var(--mut); padding:6px 9px 8px; }
+  .b-insp{ margin:8px 16px 4px; background:#f7f9fd; border:1px solid var(--line); border-radius:14px; padding:12px 14px; font-size:16px; }
+  .b-insp div{ padding:4px 0; } .b-insp b{ color:var(--navy); } .b-insp .p{ color:var(--green); font-weight:800; }
+
+  /* ===== C · ONE SCREEN — bento ===== */
+  .c-phone{ background:#eef0f4; }
+  .c-bar{ display:flex; align-items:center; padding:14px 14px 8px; gap:10px; }
+  .c-bar .lg{ height:36px; } .c-bar .lg2{ height:26px; margin-left:auto; }
+  .c-addr{ padding:0 14px 10px; }
+  .c-addr h2{ font-size:23px; font-weight:800; letter-spacing:-.01em; }
+  .c-addr .sub{ color:var(--mut); font-size:14.5px; }
+  .c-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 14px 14px; }
+  .c-tile{ background:#fff; border-radius:18px; padding:14px; min-height:104px; }
+  .c-tile .k{ font-size:12.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); }
+  .c-tile .v{ font-size:21px; font-weight:800; line-height:1.2; margin-top:4px; }
+  .c-tile .s{ font-size:14px; color:var(--mut); margin-top:2px; }
+  .c-tile.wide{ grid-column:1 / -1; }
+  .c-tile.hero{ background:var(--navy); color:#fff; }
+  .c-tile.hero .k{ color:#b9c7e6; } .c-tile.hero .s{ color:#d5ddf0; }
+  .c-tile.hero .v em{ font-style:normal; color:var(--gold); }
+  .c-tile.photo{ padding:0; overflow:hidden; position:relative; min-height:190px; }
+  .c-tile.photo img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .c-tile.photo .cap{ position:absolute; left:0; right:0; bottom:0; padding:22px 12px 10px; color:#fff; font-size:14px; font-weight:700; background:linear-gradient(transparent, rgba(10,16,30,.75)); }
+  .c-tile .big{ font-size:36px; font-weight:800; letter-spacing:-.02em; }
+  .c-bar6{ display:flex; gap:4px; margin-top:9px; }
+  .c-bar6 i{ flex:1; height:8px; border-radius:4px; background:#dde3ec; }
+  .c-bar6 i.done{ background:var(--green); } .c-bar6 i.now{ background:var(--gold); }
+  .c-call{ margin:0 14px 16px; background:var(--gold); color:#231a00; border-radius:16px; padding:16px; text-align:center; font-weight:800; font-size:18px; }
+  .c-call small{ display:block; font-weight:600; font-size:14px; }
+
+  /* ===== D · THE CONVERSATION — chat ===== */
+  .d-phone{ background:#e9e4da; }
+  .d-bar{ background:#fff; padding:12px 16px; display:flex; align-items:center; gap:12px; border-bottom:1px solid #d8d2c4; position:sticky; top:0; }
+  .d-bar .av{ width:42px; height:42px; border-radius:50%; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden; flex:0 0 42px; }
+  .d-bar .av img{ height:26px; width:auto; }
+  .d-bar .nm{ font-weight:800; font-size:17px; line-height:1.15; }
+  .d-bar .on{ font-size:13.5px; color:var(--green); font-weight:600; }
+  .d-bar .lg2{ height:26px; margin-left:auto; }
+  .d-thread{ padding:14px 12px 6px; }
+  .d-day{ text-align:center; margin:10px 0; }
+  .d-day span{ background:#fff; color:var(--mut); font-size:13px; font-weight:700; padding:5px 12px; border-radius:999px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .d-msg{ background:#fff; border-radius:16px; border-top-left-radius:4px; padding:11px 13px; margin:0 44px 10px 0; box-shadow:0 1px 3px rgba(0,0,0,.08); font-size:16.5px; }
+  .d-msg img{ width:100%; height:230px; object-fit:cover; border-radius:10px; margin-bottom:9px; }
+  .d-msg .tm{ display:block; text-align:right; font-size:12.5px; color:var(--mut); margin-top:5px; }
+  .d-msg b{ color:var(--navy); }
+  .d-msg .pass{ color:var(--green); font-weight:800; }
+  .d-msg.me{ background:#d9f3d2; margin:0 0 10px 44px; border-radius:16px; border-top-right-radius:4px; border-top-left-radius:16px; }
+  .d-input{ margin:8px 12px 16px; background:#fff; border-radius:999px; padding:13px 18px; color:var(--mut); font-size:16px; display:flex; }
+  .d-input span{ margin-left:auto; color:var(--navy); font-weight:800; }
 </style>
 </head>
 <body>
 
 <div class="shell-head">
-  <h1>SHARMATRACK — Redesign Mockups, v2</h1>
-  <p>Same real job (<b>212 Marion Oaks Golf Way</b>, EXJ Root · Florence 1), four genuinely different designs this time — a photo journal, a dark control console, a paper record, and a clean app. Same facts and photos in each; only the design changes.</p>
+  <h1>SHARMATRACK — Redesign Mockups, v3</h1>
+  <p>Fair criticism on v2 — those changed the paint, not the page. These four are different <b>kinds</b> of page: a story feed, a house diagram, a one-screen board, and a conversation. Same real job throughout — 212 Marion Oaks Golf Way.</p>
 </div>
 
 <div class="switcher"><div class="switcher-in">
-  <button class="swbtn on" data-dir="a">A · The Walk<small>Full-bleed photo journal</small></button>
-  <button class="swbtn" data-dir="b">B · Control Room<small>Dark console, numbers first</small></button>
-  <button class="swbtn" data-dir="c">C · The Dossier<small>Paper record, serif type</small></button>
-  <button class="swbtn" data-dir="d">D · The Proof Page<small>Clean app — my merge</small></button>
+  <button class="swbtn on" data-dir="a">A · The Story<small>Timeline feed — newest first</small></button>
+  <button class="swbtn" data-dir="b">B · The House<small>The plan is the page</small></button>
+  <button class="swbtn" data-dir="c">C · One Screen<small>Everything at a glance, no scroll</small></button>
+  <button class="swbtn" data-dir="d">D · The Conversation<small>The job as a chat thread</small></button>
 </div></div>
 
 <div class="stage">
 
-<!-- ================= A · THE WALK ================= -->
+<!-- ================= A · THE STORY ================= -->
 <section class="dir on" id="dir-a">
-  <div class="dir-note"><b>A — The Walk.</b> A photo journal, edge to edge. No cards, no dashboard — you scroll the job like walking it with the GC. Chapters, big photos, dated captions.</div>
+  <div class="dir-note"><b>A — The Story.</b> No sections at all. The job is a feed: every update is a post, newest first, and the phases live in the filter chips on top. This is the CompanyCam shape — builders already know how to read it.</div>
   <div class="phone a-phone">
-    <div class="a-logos"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
-    <div class="a-title"><h2>212 Marion Oaks Golf Way</h2><div class="sub">Ocala, FL · Florence 1 · EXJ Root · Electrical + HVAC</div></div>
-    <div class="a-now">Right now: <span>Electrical Rough-in</span> — started Thu Nov 19</div>
-    <figure class="a-shot"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption><span class="d">Thu Nov 19 · Electrical TUG</span>TUG complete — temporary power in and passed. The house is live for the trades.</figcaption></figure>
-    <div class="a-chapter"><div class="k">Chapter One</div><h3>Electrical Underground</h3><div class="st">Status — <b>Complete</b></div></div>
-    <figure class="a-shot"><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption><span class="d">Electrical Underground</span>Conduit run in the slab, ready for inspection and pour.</figcaption></figure>
-    <div class="a-ticks"><div><b>✓</b> Conduit run complete</div><div><b>✓</b> Grounding in place</div></div>
-    <div class="a-chapter"><div class="k">Chapter Two</div><h3>Electrical TUG</h3><div class="st">Status — <b>Complete</b> · Inspection passed</div></div>
-    <div class="a-pair"><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><img src="img/212-meter-base-mounted.jpg" alt="Meter base mounted"></div>
-    <div class="a-paircap">GFCI + grounding at the TUG · Meter base mounted</div>
-    <div class="a-ticks"><div><b>✓</b> Meter base mounted</div><div><b>✓</b> Inspection passed — #261544-2026</div></div>
-    <div class="a-chapter"><div class="k">Chapter Three</div><h3>Electrical Rough-in</h3><div class="st">Status — <b>In progress</b>, started Thu Nov 19</div></div>
-    <div class="a-wait">Photos land here as the crew uploads them.</div>
-    <div class="a-chapter"><div class="k">Chapter Four</div><h3>HVAC Rough</h3><div class="st">Status — <b>Complete</b> · Inspection approved</div></div>
-    <figure class="a-shot"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption><span class="d">HVAC Rough</span>Main trunk run, roughed and strapped.</figcaption></figure>
-    <div class="a-pair"><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"></div>
-    <div class="a-paircap">Ductwork roughed in · Air handler area roughed</div>
-    <div class="a-chapter"><div class="k">The Record</div><h3>Inspections</h3></div>
-    <div class="a-insp">
-      <div class="row"><div class="t">TUG Preliminary Power Release <span class="v pass">— Passed</span></div><div class="s">Electrical · Marion County · #261544-2026 · Inspector Prinzi</div></div>
-      <div class="row"><div class="t">Rough Mechanical <span class="v pass">— Approved</span></div><div class="s">HVAC · Thu Nov 19, 2026 · Inspector Randy Johnston</div></div>
-      <div class="row"><div class="t">Rough Electric <span class="v wait">— Awaiting schedule</span></div><div class="s">Electrical · requested when rough-in completes</div></div>
-    </div>
-    <div class="a-chapter"><div class="k">The Record</div><h3>Job Facts</h3></div>
-    <div class="a-facts">
-      <div><span class="k">Plan</span><span>Florence 1</span></div>
-      <div><span class="k">Living / Under roof</span><span>2,325 SF / 3,076 SF</span></div>
-      <div><span class="k">Permit</span><span>BLDR-26-09-23294</span></div>
-      <div><span class="k">HVAC system</span><span>3.5 ton</span></div>
-      <div><span class="k">Meter combo</span><span>Eaton Type BR · Siemens QP interior</span></div>
-    </div>
-    <div class="a-foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
-  </div>
-</section>
-
-<!-- ================= B · CONTROL ROOM ================= -->
-<section class="dir" id="dir-b">
-  <div class="dir-note"><b>B — Control Room.</b> A dark operations console. Numbers first, everything at a glance, photos as a tight evidence grid. Built for the GC who checks five jobs before coffee.</div>
-  <div class="phone b-phone">
-    <div class="b-top"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
-    <div class="b-addr">212 Marion Oaks Golf Way · Ocala · Florence 1</div>
-    <div class="b-now">Electrical Rough-in <em>in progress</em></div>
-    <div class="b-seg"><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i class="done"></i><i></i></div>
-    <div class="b-segcap">Underground ✓ · TUG ✓ · Rough-in ● · Trim · HVAC Rough ✓ · Machine &amp; Trims</div>
-    <div class="b-stats">
-      <div class="b-stat"><div class="n">4<span style="color:#5f719c">/6</span></div><div class="k">Phases complete</div><div class="s">Rough-in running now</div></div>
-      <div class="b-stat"><div class="n grn">2</div><div class="k">Inspections passed</div><div class="s">0 failed · 0 open corrections</div></div>
-      <div class="b-stat"><div class="n gold">10</div><div class="k">Photos on record</div><div class="s">Latest Thu Nov 19</div></div>
-      <div class="b-stat"><div class="n">3.5<span style="font-size:19px;color:#8fa5cf"> ton</span></div><div class="k">HVAC system</div><div class="s">Rough approved Nov 19</div></div>
-    </div>
-    <div class="b-h">Inspections</div>
-    <div class="b-insp">
-      <div class="row"><span class="v pass">PASSED</span><div class="t">TUG Preliminary Power Release</div><div class="s">Electrical · #261544-2026 · Inspector Prinzi</div></div>
-      <div class="row"><span class="v pass">APPROVED</span><div class="t">Rough Mechanical</div><div class="s">HVAC · Thu Nov 19, 2026 · Inspector Randy Johnston</div></div>
-      <div class="row wait"><span class="v wait">NEXT</span><div class="t">Rough Electric</div><div class="s">Electrical · not yet scheduled</div></div>
-    </div>
-    <div class="b-h">Evidence — latest photos</div>
-    <div class="b-grid">
-      <img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork">
-      <img src="img/212-underground.jpg" alt="Underground"><img src="img/212-meter-base-mounted.jpg" alt="Meter base"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler">
-    </div>
-    <div class="b-gridcap">Tap any photo for the full frame + caption. Every photo is stamped with address, builder and date.</div>
-    <div class="b-h">Job data</div>
-    <div class="b-rows">
-      <div class="r"><span class="k">Plan</span><span>Florence 1</span></div>
-      <div class="r"><span class="k">Living / Under roof</span><span>2,325 SF / 3,076 SF</span></div>
-      <div class="r"><span class="k">Permit</span><span>BLDR-26-09-23294</span></div>
-      <div class="r"><span class="k">Trades</span><span>Electrical + HVAC</span></div>
-      <div class="r"><span class="k">Meter combo</span><span>Eaton Type BR · Siemens QP interior</span></div>
-      <div class="r"><span class="k">Updated</span><span>Thu Nov 19, 2026</span></div>
-    </div>
-    <div class="b-foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
-  </div>
-</section>
-
-<!-- ================= C · DOSSIER ================= -->
-<section class="dir" id="dir-c">
-  <div class="dir-note"><b>C — The Dossier.</b> A paper record. Cream stock, serif type, ruled lines — it reads like a document you'd hand across a desk or forward to a lender. No app chrome at all.</div>
-  <div class="phone c-phone">
-    <div class="c-mast">
-      <div class="row"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
-      <div class="firm">Sharma Electric &amp; HVAC · EC13013924 · CAC1823596</div>
-    </div>
-    <hr class="c-rule"><hr class="c-rule2">
-    <div class="c-title"><h2>212 Marion Oaks Golf Way</h2><div class="sub">Ocala, Florida — a record of electrical &amp; HVAC work, EXJ Root LLC</div></div>
-    <div class="c-sec">
-      <table class="c-spec">
-        <tr><td class="k">Plan</td><td>Florence 1</td></tr>
-        <tr><td class="k">Living area</td><td>2,325 square feet</td></tr>
-        <tr><td class="k">Under roof</td><td>3,076 square feet</td></tr>
-        <tr><td class="k">Permit</td><td>BLDR-26-09-23294 · Parcel 8005-0758-11</td></tr>
-        <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
-        <tr><td class="k">Record updated</td><td>Thursday, November 19, 2026</td></tr>
-      </table>
-    </div>
-    <div class="c-sec"><div class="no">No. 1</div><h3>Electrical Underground</h3><div class="status">Complete.</div>
-      <figure class="c-plate"><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption><b>Plate I.</b> The underground conduit run, in slab.</figcaption></figure></div>
-    <div class="c-sec"><div class="no">No. 2</div><h3>Electrical TUG</h3><div class="status">Complete. Inspection passed, No. 261544-2026.</div>
-      <figure class="c-plate"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption><b>Plate II.</b> The TUG, complete — wide view of the finished install.</figcaption></figure>
-      <figure class="c-plate"><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><figcaption><b>Plate III.</b> GFCI device and grounding at the TUG.</figcaption></figure></div>
-    <div class="c-sec"><div class="no">No. 3</div><h3>Electrical Rough-in</h3><div class="status">In progress — commenced Thursday, November 19, 2026. Plates follow as the work is photographed.</div></div>
-    <div class="c-sec"><div class="no">No. 4</div><h3>HVAC Rough</h3><div class="status">Complete. Rough Mechanical approved November 19, 2026 — Inspector Randy Johnston.</div>
-      <figure class="c-plate"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption><b>Plate IV.</b> The main trunk run.</figcaption></figure>
-      <figure class="c-plate"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><figcaption><b>Plate V.</b> The air handler area, roughed in.</figcaption></figure></div>
-    <div class="c-sec"><div class="no">No. 5</div><h3>Prints &amp; Documents of Record</h3>
-      <div class="c-rec"><div class="t">Master Drawing — Florence 1</div><div class="s">Nine sheets, incl. Electrical Plan A7 + 200A riser</div></div>
-      <div class="c-rec"><div class="t">Engineered Plans — Florence 1, sealed</div><div class="s">Nine sheets</div></div>
-      <div class="c-rec"><div class="t">Wiring Drawings — D6</div><div class="s">Draft — not for construction</div></div>
-      <div class="c-rec"><div class="t">Energy Calc — Florence 1</div><div class="s">Covers all Florence houses</div></div>
-    </div>
-    <div class="c-foot">Sharmatrack · Developed by Sanjay Sharma</div>
-  </div>
-</section>
-
-<!-- ================= D · PROOF PAGE ================= -->
-<section class="dir" id="dir-d">
-  <div class="dir-note"><b>D — The Proof Page (my merge).</b> The clean app: white cards, a stepper you can read at a glance, a "What changed" box, and a sticky bottom bar in the thumb zone. The research numbers applied literally — 18px base, 48px+ targets, status as icon + word + date.</div>
-  <div class="phone d-phone">
-    <div class="duo"><img class="lg-sharma" src="img/logo.png" alt="Sharma Electric & HVAC"><img class="lg-builder" src="img/logo-exj.png" alt="EXJ Root"></div>
-    <div class="jm-head">
-      <span class="pill now">● ELECTRICAL ROUGH-IN — IN PROGRESS</span>
+    <div class="a-bar">
+      <div class="row"><img class="lg" src="img/logo.png" alt="Sharma"><img class="lg2" src="img/logo-exj.png" alt="EXJ Root"></div>
       <h2>212 Marion Oaks Golf Way</h2>
-      <div class="jm-updated">Ocala, FL · Florence 1 · EXJ Root · Updated Thu Nov 19, 2026</div>
+      <div class="sub">Florence 1 · Ocala, FL · Electrical + HVAC · Updated Thu Nov 19</div>
     </div>
-    <figure class="jm-hero"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete at 212"><figcaption><b>TUG complete.</b> Temporary power is in and passed — the house is live for the trades.</figcaption></figure>
-    <div class="jm-sec">
-      <h3>Progress — 4 of 6 phases complete</h3>
-      <ul class="stepper">
-        <li class="done"><span class="n">✓</span><div><div class="nm">Electrical Underground</div><div class="dt">Complete</div></div><span class="pill done">DONE</span></li>
-        <li class="done"><span class="n">✓</span><div><div class="nm">Electrical TUG</div><div class="dt">Complete · inspection passed</div></div><span class="pill done">DONE</span></li>
-        <li class="now"><span class="n">3</span><div><div class="nm">Electrical Rough-in</div><div class="dt">Started Thu Nov 19</div></div><span class="pill now">IN PROGRESS</span></li>
-        <li><span class="n">4</span><div><div class="nm">Electrical Trim</div><div class="dt">After rough-in</div></div><span class="pill next">UP NEXT</span></li>
-        <li class="done"><span class="n">✓</span><div><div class="nm">HVAC Rough</div><div class="dt">Complete · inspection approved Nov 19</div></div><span class="pill done">DONE</span></li>
-        <li><span class="n">6</span><div><div class="nm">HVAC Machine &amp; Trims</div><div class="dt">After rough-in</div></div><span class="pill next">UP NEXT</span></li>
-      </ul>
+    <div class="a-chips">
+      <span class="a-chip on">All updates</span><span class="a-chip done">✓ Underground</span><span class="a-chip done">✓ TUG</span><span class="a-chip">Rough-in</span><span class="a-chip">Trim</span><span class="a-chip done">✓ HVAC Rough</span><span class="a-chip">Machine &amp; Trims</span>
     </div>
-    <div class="jm-sec">
-      <h3>What changed</h3>
-      <div class="changed">
-        <div><b>Thu Nov 19</b> — HVAC Rough inspection approved; electric rough-in started.</div>
-        <div><b>This week</b> — TUG inspection passed; temporary power live.</div>
-        <div><b>Next</b> — Rough Electric inspection, requested when rough-in completes.</div>
+    <div class="a-feed">
+      <div class="a-day">Thursday, Nov 19</div>
+      <div class="a-ev">
+        <div class="hd"><span class="av">S</span><div><div class="who">Sharma Electric &amp; HVAC</div><div class="when">2:43 PM</div></div><span class="tag pass">Inspection ✓</span></div>
+        <img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area">
+        <div class="tx"><b>Rough Mechanical — APPROVED.</b> Inspector Randy Johnston signed off the HVAC rough at 212. Air handler area, trunk and boots all passed.</div>
+      </div>
+      <div class="a-ev">
+        <div class="hd"><span class="av">S</span><div><div class="who">Sharma Electric &amp; HVAC</div><div class="when">9:15 AM</div></div><span class="tag">Rough-in</span></div>
+        <img src="img/212-meter-base-open.jpg" alt="Meter base open">
+        <div class="tx"><b>Electrical rough-in started.</b> Crew on site at 212 this morning. Photos will post here as the work goes in.</div>
+      </div>
+      <div class="a-day">Earlier this week</div>
+      <div class="a-ev">
+        <div class="hd"><span class="av">S</span><div><div class="who">Sharma Electric &amp; HVAC</div><div class="when">Tue</div></div><span class="tag pass">Inspection ✓</span></div>
+        <div class="duo2"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"></div>
+        <div class="tx"><b>TUG inspection — PASSED</b> (#261544-2026, Inspector Prinzi). Temporary power is live for the trades.</div>
+      </div>
+      <div class="a-ev">
+        <div class="hd"><span class="av">S</span><div><div class="who">Sharma Electric &amp; HVAC</div><div class="when">Mon</div></div><span class="tag">HVAC Rough</span></div>
+        <div class="duo2"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"></div>
+        <div class="tx"><b>HVAC rough complete.</b> Trunk run and ductwork in, ready for inspection.</div>
+      </div>
+      <div class="a-ev">
+        <div class="hd"><span class="av">S</span><div><div class="who">Sharma Electric &amp; HVAC</div><div class="when">Last week</div></div><span class="tag">Underground</span></div>
+        <img src="img/212-underground.jpg" alt="Underground conduit">
+        <div class="tx"><b>Underground complete.</b> Conduit run in the slab at 212 — first phase in the ground.</div>
       </div>
     </div>
-    <div class="jm-sec">
-      <h3>Latest photos</h3>
-      <div class="strip">
-        <figure><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption>HVAC Rough · Main trunk run</figcaption></figure>
-        <figure><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><figcaption>HVAC Rough · Ductwork roughed in</figcaption></figure>
-        <figure><img src="img/212-tug-gfci-and-grounding.jpg" alt="GFCI and grounding"><figcaption>Electrical TUG · GFCI + grounding</figcaption></figure>
-      </div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+  </div>
+</section>
+
+<!-- ================= B · THE HOUSE ================= -->
+<section class="dir" id="dir-b">
+  <div class="dir-note"><b>B — The House.</b> The drawing is the page. One elevation of the home with every system marked where it physically lives — tap a system, get its photos. A builder reads the whole job off the picture in seconds.</div>
+  <div class="phone b-phone">
+    <div class="b-bar"><img class="lg" src="img/logo.png" alt="Sharma"><img class="lg2" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <div class="b-title"><h2>212 Marion Oaks Golf Way</h2><div class="sub">Florence 1 · Ocala, FL · Permit BLDR-26-09-23294</div></div>
+    <div class="b-diagram">
+      <svg viewBox="0 0 400 300" width="100%" role="img" aria-label="House elevation showing system status">
+        <!-- ground + underground -->
+        <line x1="8" y1="242" x2="392" y2="242" stroke="#264387" stroke-width="2.5"/>
+        <line x1="55" y1="264" x2="305" y2="264" stroke="#177245" stroke-width="3" stroke-dasharray="7 5"/>
+        <line x1="120" y1="264" x2="120" y2="242" stroke="#177245" stroke-width="3"/>
+        <line x1="240" y1="264" x2="240" y2="242" stroke="#177245" stroke-width="3"/>
+        <!-- house -->
+        <path d="M52 118 L185 52 L318 118" fill="none" stroke="#264387" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="70" y="118" width="230" height="124" fill="#f7f9fd" stroke="#264387" stroke-width="2.5"/>
+        <!-- garage -->
+        <rect x="300" y="150" width="76" height="92" fill="#f7f9fd" stroke="#264387" stroke-width="2.5"/>
+        <line x1="292" y1="150" x2="384" y2="150" stroke="#264387" stroke-width="3"/>
+        <line x1="312" y1="242" x2="312" y2="176" stroke="#c3ccd9" stroke-width="2"/>
+        <line x1="364" y1="242" x2="364" y2="176" stroke="#c3ccd9" stroke-width="2"/>
+        <!-- attic duct -->
+        <rect x="112" y="88" width="150" height="15" rx="7" fill="#dce7f7" stroke="#264387" stroke-width="1.8"/>
+        <line x1="140" y1="103" x2="140" y2="118" stroke="#264387" stroke-width="1.8"/>
+        <line x1="190" y1="103" x2="190" y2="118" stroke="#264387" stroke-width="1.8"/>
+        <line x1="238" y1="103" x2="238" y2="118" stroke="#264387" stroke-width="1.8"/>
+        <!-- windows / door -->
+        <rect x="92" y="160" width="34" height="34" fill="#fff" stroke="#264387" stroke-width="1.8"/>
+        <rect x="238" y="160" width="34" height="34" fill="#fff" stroke="#264387" stroke-width="1.8"/>
+        <rect x="168" y="182" width="30" height="60" fill="#fff" stroke="#264387" stroke-width="1.8"/>
+        <!-- rough-in dots along walls -->
+        <circle cx="86" cy="222" r="3.5" fill="#F0A846"/><circle cx="150" cy="222" r="3.5" fill="#F0A846"/><circle cx="222" cy="222" r="3.5" fill="#F0A846"/><circle cx="282" cy="222" r="3.5" fill="#F0A846"/>
+        <!-- meter on garage wall + panel -->
+        <rect x="294" y="176" width="13" height="22" fill="#fff" stroke="#264387" stroke-width="1.8"/>
+        <rect x="322" y="168" width="15" height="26" fill="#fff" stroke="#264387" stroke-width="1.8"/>
+        <!-- condenser pad, left -->
+        <rect x="16" y="218" width="34" height="24" rx="3" fill="#eef1f6" stroke="#264387" stroke-width="1.8"/>
+        <circle cx="33" cy="230" r="8" fill="none" stroke="#264387" stroke-width="1.5"/>
+        <!-- status dots -->
+        <circle cx="180" cy="264" r="8" fill="#177245" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="300" cy="187" r="8" fill="#177245" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="185" cy="95" r="8" fill="#177245" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="150" cy="206" r="8" fill="#F0A846" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="330" cy="181" r="8" fill="#b9c2d0" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="33" cy="212" r="8" fill="#b9c2d0" stroke="#fff" stroke-width="2.5"/>
+        <!-- labels -->
+        <g font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="12.5" font-weight="700" fill="#264387">
+          <text x="185" y="34" text-anchor="middle">HVAC ducts ✓</text>
+          <text x="180" y="290" text-anchor="middle" fill="#177245">Underground ✓</text>
+          <text x="86" y="140">Rough-in — in progress</text>
+          <text x="330" y="130" text-anchor="middle">Panel · Trim later</text>
+          <text x="33" y="196" text-anchor="middle" fill="#4d5560">Machine — later</text>
+        </g>
+        <line x1="185" y1="40" x2="185" y2="84" stroke="#264387" stroke-width="1.2"/>
+        <line x1="128" y1="146" x2="146" y2="198" stroke="#F0A846" stroke-width="1.2"/>
+        <line x1="330" y1="136" x2="330" y2="168" stroke="#264387" stroke-width="1.2"/>
+      </svg>
     </div>
-    <div class="jm-sec">
-      <h3>Electrical Underground <span class="pill done">✓ DONE</span></h3>
-      <div class="gal">
-        <figure><img src="img/212-underground.jpg" alt="Underground conduit"><figcaption>Underground conduit run, in slab</figcaption></figure>
-        <figure><img src="img/212-meter-base-open.jpg" alt="Meter base open"><figcaption>Meter base open — service work</figcaption></figure>
-      </div>
+    <div class="b-legend"><span><i style="background:#177245"></i>Done</span><span><i style="background:#F0A846"></i>In progress</span><span><i style="background:#b9c2d0"></i>Coming later</span></div>
+    <div class="b-sys">
+      <div class="row"><span class="dot" style="background:#177245"></span><span class="nm">Electrical Underground</span><span class="st" style="color:#177245">✓ Complete</span></div>
+      <div class="row"><span class="dot" style="background:#177245"></span><span class="nm">Electrical TUG — garage-side meter</span><span class="st" style="color:#177245">✓ Passed</span></div>
+      <div class="row"><span class="dot" style="background:#F0A846"></span><span class="nm">Electrical Rough-in</span><span class="st" style="color:#8a5a00">In progress</span></div>
+      <div class="row sel"><span class="dot" style="background:#177245"></span><span class="nm">HVAC Rough — ducts &amp; air handler</span><span class="st" style="color:#177245">✓ Approved</span></div>
+      <div class="row"><span class="dot" style="background:#b9c2d0"></span><span class="nm">Electrical Trim — panel &amp; devices</span><span class="st" style="color:#4d5560">Later</span></div>
+      <div class="row"><span class="dot" style="background:#b9c2d0"></span><span class="nm">HVAC Machine &amp; Trims</span><span class="st" style="color:#4d5560">Later</span></div>
     </div>
-    <div class="jm-sec">
-      <h3>Electrical TUG <span class="pill done">✓ DONE</span></h3>
-      <div class="gal">
-        <figure><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><figcaption>TUG complete — wide shot</figcaption></figure>
-        <figure><img src="img/212-meter-base-mounted.jpg" alt="Meter base mounted"><figcaption>Meter base mounted</figcaption></figure>
-      </div>
-      <ul class="tick"><li>Meter base mounted</li><li>GFCI + grounding complete</li><li>Inspection passed</li></ul>
-    </div>
-    <div class="jm-sec">
-      <h3>HVAC Rough <span class="pill done">✓ DONE</span></h3>
-      <div class="gal">
+    <div class="b-photos">
+      <div class="cap">Showing: HVAC Rough — tap a system above to switch</div>
+      <div class="grid">
+        <figure><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><figcaption>Main trunk run</figcaption></figure>
+        <figure><img src="img/212-hvac-rough-ductwork.jpg" alt="Ductwork"><figcaption>Ductwork roughed in</figcaption></figure>
         <figure><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><figcaption>Air handler area roughed</figcaption></figure>
         <figure><img src="img/212-hvac-rough-boots.jpg" alt="Supply boots"><figcaption>Supply boots set</figcaption></figure>
       </div>
     </div>
-    <div class="jm-sec">
-      <h3>Inspections</h3>
-      <div class="jm-card">
-        <div class="insp-row"><div><div class="t">TUG Preliminary Power Release</div><div class="s">Electrical · Marion County · #261544-2026 · Inspector Prinzi</div></div><span class="pill pass">✓ PASSED</span></div>
-        <div class="insp-row"><div><div class="t">Rough Mechanical</div><div class="s">HVAC · Thu Nov 19, 2026 · Inspector Randy Johnston</div></div><span class="pill pass">✓ APPROVED</span></div>
-        <div class="insp-row"><div><div class="t">Rough Electric</div><div class="s">Electrical · not yet scheduled</div></div><span class="pill next">◷ AWAITING</span></div>
-      </div>
-    </div>
-    <div class="jm-sec">
-      <h3>Prints &amp; plans</h3>
-      <div class="doc"><span class="ic">PDF</span>Master Drawing — Florence 1<span class="meta">9 sheets</span></div>
-      <div class="doc"><span class="ic">PDF</span>Engineered Plans — Florence 1, sealed<span class="meta">9 sheets</span></div>
-      <div class="doc"><span class="ic">PDF</span>Wiring Drawings — D6<span class="meta">Draft</span></div>
-      <div class="doc"><span class="ic">PDF</span>Energy Calc — Florence 1<span class="meta">All Florence houses</span></div>
-    </div>
-    <div class="jm-sec">
-      <h3>Job details — Electrical + HVAC</h3>
-      <div class="jm-card">
-        <table class="spec">
-          <tr><td class="k">Plan</td><td>Florence 1</td></tr>
-          <tr><td class="k">Living / Under roof</td><td>2,325 SF / 3,076 SF</td></tr>
-          <tr><td class="k">Permit</td><td>BLDR-26-09-23294</td></tr>
-          <tr><td class="k">HVAC system</td><td>3.5 ton</td></tr>
-          <tr><td class="k">Meter combo</td><td>Eaton Type BR · Siemens QP interior</td></tr>
-        </table>
-      </div>
+    <div class="b-insp">
+      <div><b>Inspections:</b> TUG <span class="p">✓ Passed</span> (#261544-2026) · Rough Mechanical <span class="p">✓ Approved</span> Nov 19 · Rough Electric — not yet scheduled</div>
+      <div><b>Facts:</b> Living 2,325 SF · Under roof 3,076 SF · 3.5 ton · Eaton BR meter combo, Siemens QP interior</div>
     </div>
     <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
-    <nav class="anchorbar"><a href="#" class="on">Overview</a><a href="#">Photos</a><a href="#">Inspections</a><a href="#">Plans</a></nav>
+  </div>
+</section>
+
+<!-- ================= C · ONE SCREEN ================= -->
+<section class="dir" id="dir-c">
+  <div class="dir-note"><b>C — One Screen.</b> No scrolling, no sections. The whole job as a board of tiles that fits a single phone screen — status, next step, proof photo, numbers. A GC glances once and knows everything.</div>
+  <div class="phone c-phone">
+    <div class="c-bar"><img class="lg" src="img/logo.png" alt="Sharma"><img class="lg2" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <div class="c-addr"><h2>212 Marion Oaks Golf Way</h2><div class="sub">Florence 1 · Ocala, FL · EXJ Root · Thu Nov 19</div></div>
+    <div class="c-grid">
+      <div class="c-tile hero wide"><div class="k">Happening now</div><div class="v">Electrical Rough-in <em>in progress</em></div><div class="s">Started Thu Nov 19 · crew on site</div></div>
+      <div class="c-tile"><div class="k">Progress</div><div class="big">4 of 6</div><div class="c-bar6"><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i class="done"></i><i></i></div><div class="s">Phases complete</div></div>
+      <div class="c-tile"><div class="k">Next inspection</div><div class="v">Rough Electric</div><div class="s">Requested when rough-in completes</div></div>
+      <div class="c-tile photo wide"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><div class="cap">Latest proof — TUG complete &amp; passed · 10 photos on this job</div></div>
+      <div class="c-tile"><div class="k">Inspections</div><div class="v" style="color:#177245">2 passed</div><div class="s">TUG ✓ · Rough Mechanical ✓ · 0 failed</div></div>
+      <div class="c-tile"><div class="k">HVAC</div><div class="v">3.5 ton</div><div class="s">Rough approved Nov 19 · machine later</div></div>
+      <div class="c-tile wide"><div class="k">The house</div><div class="v" style="font-size:18px">2,325 SF living · 3,076 SF under roof</div><div class="s">Permit BLDR-26-09-23294 · Eaton BR meter combo · Siemens QP interior</div></div>
+    </div>
+    <div class="c-call">Questions on this job? Call Sharma<small>(407) 881-9076 — tap to call</small></div>
+    <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+  </div>
+</section>
+
+<!-- ================= D · THE CONVERSATION ================= -->
+<section class="dir" id="dir-d">
+  <div class="dir-note"><b>D — The Conversation.</b> The job page as a chat thread, because that's where builders already live. Sharma posts updates with photos; the builder just reads — and can reply in the same thread. No new behavior to learn.</div>
+  <div class="phone d-phone">
+    <div class="d-bar">
+      <span class="av"><img src="img/logo.png" alt="Sharma"></span>
+      <div><div class="nm">Sharma — 212 Marion Oaks</div><div class="on">Electrical + HVAC · EXJ Root job</div></div>
+      <img class="lg2" src="img/logo-exj.png" alt="EXJ Root">
+    </div>
+    <div class="d-thread">
+      <div class="d-day"><span>Last week</span></div>
+      <div class="d-msg"><img src="img/212-underground.jpg" alt="Underground conduit"><b>Underground is done at 212</b> — conduit run in the slab, grounding in. First phase complete. ✓<span class="tm">9:02 AM</span></div>
+      <div class="d-day"><span>Tuesday</span></div>
+      <div class="d-msg"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><b>TUG passed inspection</b> <span class="pass">✓ PASSED</span> (#261544-2026, Inspector Prinzi). Temporary power is live for all the trades.<span class="tm">1:18 PM</span></div>
+      <div class="d-msg me">Great — drywall crew can plan on power being there. Thanks.<span class="tm">1:24 PM ✓✓</span></div>
+      <div class="d-day"><span>Thursday, Nov 19</span></div>
+      <div class="d-msg"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler area"><b>HVAC rough APPROVED</b> <span class="pass">✓</span> — Inspector Randy Johnston signed it off this afternoon. Trunk, ductwork and air handler all good. 3.5 ton system.<span class="tm">2:43 PM</span></div>
+      <div class="d-msg">Also — <b>electrical rough-in started this morning</b>. I'll post photos as it goes in. Next inspection after that: Rough Electric.<span class="tm">2:44 PM</span></div>
+      <div class="d-msg">Job facts, pinned here for you: Florence 1 · 2,325 SF living / 3,076 under roof · Permit BLDR-26-09-23294 · Prints are in the app under this address.<span class="tm">2:44 PM</span></div>
+    </div>
+    <div class="d-input">Message Sharma about this job…<span>Send</span></div>
+    <div class="foot" style="background:#e9e4da"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
   </div>
 </section>
 
