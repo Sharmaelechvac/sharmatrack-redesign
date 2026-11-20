@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHARMATRACK — The Ring</title>
+<style>
+  :root{ --navy:#264387; --gold:#F0A846; --ink:#14181f; --mut:#4d5560; --line:#e3e7ee; --green:#177245; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#fff; color:var(--ink); font-size:18px; text-align:center; }
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:430px; margin:0 auto; padding:14px 16px 22px; }
+  .back{ color:var(--navy); text-decoration:none; font-size:15px; font-weight:700; display:block; text-align:left; }
+  .logos{ display:flex; align-items:center; justify-content:center; gap:16px; margin-top:14px; }
+  .logos .a{ height:46px; } .logos .b{ height:32px; }
+  h1{ font-size:25px; font-weight:800; letter-spacing:-.01em; margin-top:12px; }
+  .sub{ color:var(--mut); font-size:15px; }
+  .ringbox{ position:relative; width:320px; height:320px; margin:20px auto 4px; }
+  .ringbox .photo{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:216px; height:216px; border-radius:50%; object-fit:cover; }
+  .ringbox .pct{ position:absolute; left:0; right:0; bottom:34px; text-align:center; color:#fff; font-weight:800; font-size:15px; text-shadow:0 1px 6px rgba(0,0,0,.65); letter-spacing:.06em; }
+  .legend{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
+  .legend span{ font-size:14px; font-weight:700; padding:7px 12px; border-radius:999px; background:#eef1f6; color:var(--mut); }
+  .legend span.done{ background:#e5f3ec; color:var(--green); }
+  .legend span.now{ background:#fdf0da; color:#8a5a00; }
+  .tiles{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; text-align:left; }
+  .tile{ border:1.5px solid var(--line); border-radius:16px; padding:14px; }
+  .tile .k{ font-size:12.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); }
+  .tile .v{ font-size:19px; font-weight:800; margin-top:3px; line-height:1.25; }
+  .tile .s{ font-size:14px; color:var(--mut); margin-top:2px; }
+  .tile.pass{ border-color:#bfe0cd; background:#f4faf6; }
+  .facts{ margin-top:16px; color:var(--mut); font-size:15.5px; line-height:1.6; }
+  .facts b{ color:var(--ink); }
+  .foot{ padding:16px; color:var(--mut); font-size:14px; }
+  .foot b{ color:var(--navy); letter-spacing:.14em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ All four concepts</a>
+  <div class="logos"><img class="a" src="img/logo.png" alt="Sharma"><img class="b" src="img/logo-exj.png" alt="EXJ Root"></div>
+  <h1>212 Marion Oaks Golf Way</h1>
+  <div class="sub">Florence 1 · Ocala, FL · EXJ Root</div>
+  <div class="ringbox">
+    <svg viewBox="0 0 320 320" width="320" height="320">
+      <!-- track -->
+      <circle cx="160" cy="160" r="146" fill="none" stroke="#edf0f5" stroke-width="17"/>
+      <!-- segments: C = 2*pi*146 ≈ 917; each phase ≈ 140 + 13 gap -->
+      <circle cx="160" cy="160" r="146" fill="none" stroke="#177245" stroke-width="17" stroke-linecap="round" stroke-dasharray="138 779" transform="rotate(-90 160 160)"/>
+      <circle cx="160" cy="160" r="146" fill="none" stroke="#177245" stroke-width="17" stroke-linecap="round" stroke-dasharray="138 779" stroke-dashoffset="-153" transform="rotate(-90 160 160)"/>
+      <circle cx="160" cy="160" r="146" fill="none" stroke="#F0A846" stroke-width="17" stroke-linecap="round" stroke-dasharray="138 779" stroke-dashoffset="-306" transform="rotate(-90 160 160)"/>
+      <circle cx="160" cy="160" r="146" fill="none" stroke="#177245" stroke-width="17" stroke-linecap="round" stroke-dasharray="138 779" stroke-dashoffset="-612" transform="rotate(-90 160 160)"/>
+    </svg>
+    <img class="photo" src="img/212-tug-complete-wide-shot.jpg" alt="212 Marion Oaks Golf Way">
+    <div class="pct">4 OF 6 PHASES DONE</div>
+  </div>
+  <div class="legend">
+    <span class="done">✓ Underground</span><span class="done">✓ TUG</span><span class="now">● Rough-in — now</span><span>Trim</span><span class="done">✓ HVAC Rough</span><span>Machine &amp; Trims</span>
+  </div>
+  <div class="tiles">
+    <div class="tile pass"><div class="k">Inspections</div><div class="v" style="color:#177245">2 passed · 0 failed</div><div class="s">TUG ✓ · Rough Mechanical ✓</div></div>
+    <div class="tile"><div class="k">Next</div><div class="v">Rough Electric inspection</div><div class="s">Requested when rough-in completes</div></div>
+  </div>
+  <div class="facts"><b>2,325 SF</b> living · <b>3,076 SF</b> under roof · <b>3.5 ton</b> HVAC · Permit <b>BLDR-26-09-23294</b><br>10 photos on this job · Updated Thu Nov 19, 2026</div>
+  <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHARMATRACK — The Story</title>
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#0b0e14; color:#fff; }
+  .wrap{ max-width:430px; margin:0 auto; padding:14px 12px 20px; }
+  .back{ color:#9fb2d8; text-decoration:none; font-size:15px; font-weight:700; }
+  h1{ font-size:22px; font-weight:800; margin:8px 0 2px; }
+  .sub{ color:#9fb2d8; font-size:14.5px; margin-bottom:12px; }
+  .story{ position:relative; height:600px; border-radius:20px; overflow:hidden; background:#000; }
+  .slide{ position:absolute; inset:0; opacity:0; transition:opacity .25s; pointer-events:none; }
+  .slide.on{ opacity:1; pointer-events:auto; }
+  .slide img{ width:100%; height:100%; object-fit:cover; }
+  .shade{ position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,.42), transparent 26%, transparent 52%, rgba(0,0,0,.82)); }
+  .bars{ position:absolute; top:12px; left:12px; right:12px; display:flex; gap:5px; z-index:5; }
+  .bars i{ flex:1; height:4px; border-radius:2px; background:rgba(255,255,255,.35); }
+  .bars i.done{ background:#fff; } .bars i.now{ background:#F0A846; }
+  .shead{ position:absolute; top:28px; left:14px; right:14px; display:flex; align-items:center; gap:9px; z-index:5; }
+  .shead .chip{ background:#fff; border-radius:9px; padding:4px 8px; }
+  .shead .chip img{ height:22px; width:auto; display:block; }
+  .shead .who{ font-size:14.5px; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,.6); }
+  .shead .who small{ display:block; font-weight:600; color:#d7deeb; font-size:12.5px; }
+  .shead .lg2{ margin-left:auto; background:#fff; border-radius:9px; padding:4px 8px; }
+  .shead .lg2 img{ height:18px; width:auto; display:block; }
+  .scap{ position:absolute; left:16px; right:16px; bottom:20px; z-index:5; }
+  .scap .k{ font-size:13px; font-weight:800; letter-spacing:.16em; color:#F0A846; text-transform:uppercase; }
+  .scap h2{ font-size:31px; font-weight:800; letter-spacing:-.01em; line-height:1.12; margin:4px 0 6px; text-shadow:0 2px 8px rgba(0,0,0,.5); }
+  .scap p{ font-size:16.5px; color:#e8ecf4; }
+  .scap .pass{ color:#4cc38a; font-weight:800; }
+  .tap{ position:absolute; top:0; bottom:0; width:38%; z-index:6; cursor:pointer; }
+  .tap.l{ left:0; } .tap.r{ right:0; }
+  .hint{ text-align:center; color:#5f719c; font-size:13.5px; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ All four concepts</a>
+  <h1>Concept 1 — The Story</h1>
+  <div class="sub">The job as tap-through stories, like Instagram. Full-screen photos, one phase per screen. Tap the right side to move on.</div>
+  <div class="story" id="story">
+    <div class="bars" id="bars"></div>
+    <div class="shead">
+      <span class="chip"><img src="img/logo.png" alt="Sharma"></span>
+      <span class="who">212 Marion Oaks Golf Way<small>SHARMATRACK · EXJ Root</small></span>
+      <span class="lg2"><img src="img/logo-exj.png" alt="EXJ Root"></span>
+    </div>
+    <!-- slides injected by JS -->
+    <div class="tap l" id="tapL"></div><div class="tap r" id="tapR"></div>
+  </div>
+  <div class="hint">Tap right = next · left = back</div>
+</div>
+<script>
+  var slides = [
+    { img:'img/212-underground.jpg', k:'Phase 1 of 6 · Electrical', h:'Underground — Complete ✓', p:'Conduit run in the slab, grounding in place. The first phase is in the ground.' },
+    { img:'img/212-tug-complete-wide-shot.jpg', k:'Phase 2 of 6 · Electrical', h:'TUG — Complete', p:'Inspection <span class="pass">PASSED</span> · #261544-2026, Inspector Prinzi. Temporary power is live for the trades.' },
+    { img:'img/212-meter-base-open.jpg', k:'Phase 3 of 6 · Electrical', h:'Rough-in — In Progress', p:'Started Thu Nov 19. Crew is on site; photos post here as the work goes in.' },
+    { img:'img/212-hvac-rough-trunk.jpg', k:'Phase 5 of 6 · HVAC', h:'HVAC Rough — Complete', p:'Rough Mechanical <span class="pass">APPROVED</span> Thu Nov 19 · Inspector Randy Johnston. 3.5 ton system.' },
+    { img:'img/212-tug-gfci-and-grounding.jpg', k:'The Record', h:'Inspections: 2 passed, 0 failed', p:'TUG ✓ · Rough Mechanical ✓ · Next up: Rough Electric, requested when rough-in completes.' },
+    { img:'img/212-finished-complete.jpg', k:'212 Marion Oaks Golf Way', h:'Florence 1 · Ocala, FL', p:'2,325 SF living · 3,076 SF under roof · Permit BLDR-26-09-23294 · Eaton BR meter, Siemens QP interior.' }
+  ];
+  var story = document.getElementById('story'), bars = document.getElementById('bars'), cur = 0;
+  slides.forEach(function(s, i){
+    var d = document.createElement('div'); d.className = 'slide' + (i===0 ? ' on' : '');
+    d.innerHTML = '<img src="'+s.img+'" alt=""><div class="shade"></div><div class="scap"><div class="k">'+s.k+'</div><h2>'+s.h+'</h2><p>'+s.p+'</p></div>';
+    story.insertBefore(d, document.getElementById('tapL'));
+    var b = document.createElement('i'); if(i===0) b.className='now'; bars.appendChild(b);
+  });
+  function go(n){
+    if(n < 0 || n >= slides.length) return;
+    document.querySelectorAll('.slide').forEach(function(el, i){ el.classList.toggle('on', i===n); });
+    bars.querySelectorAll('i').forEach(function(el, i){ el.className = i < n ? 'done' : (i === n ? 'now' : ''); });
+    cur = n;
+  }
+  document.getElementById('tapR').addEventListener('click', function(){ go(cur + 1); });
+  document.getElementById('tapL').addEventListener('click', function(){ go(cur - 1); });
+</script>
+</body>
+</html>

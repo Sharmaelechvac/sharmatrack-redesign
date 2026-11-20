@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHARMATRACK — The Wall</title>
+<style>
+  :root{ --navy:#264387; --gold:#F0A846; --ink:#14181f; --mut:#4d5560; --line:#dfe4ee; --green:#177245; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#101623; color:var(--ink); font-size:18px; }
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:1240px; margin:0 auto; padding:16px; }
+  .back{ color:#9fb2d8; text-decoration:none; font-size:15px; font-weight:700; }
+  .note{ color:#9fb2d8; font-size:15px; margin:6px 0 14px; max-width:760px; }
+  .board{ background:#fff; border-radius:18px; overflow:hidden; }
+  .bhead{ background:var(--navy); color:#fff; display:flex; align-items:center; gap:18px; padding:16px 22px; flex-wrap:wrap; }
+  .bhead .chip{ background:#fff; border-radius:10px; padding:5px 10px; }
+  .bhead .chip img{ height:38px; width:auto; }
+  .bhead h1{ font-size:30px; font-weight:800; letter-spacing:-.01em; }
+  .bhead .sub{ color:#b9c7e6; font-size:15.5px; }
+  .bhead .right{ margin-left:auto; text-align:right; }
+  .bhead .right .now{ font-size:19px; font-weight:800; color:var(--gold); }
+  .cols{ display:grid; grid-template-columns:300px 1fr 320px; gap:0; }
+  @media (max-width:900px){ .cols{ grid-template-columns:1fr; } }
+  .col{ padding:18px 20px; }
+  .col + .col{ border-left:1px solid var(--line); }
+  @media (max-width:900px){ .col + .col{ border-left:none; border-top:1px solid var(--line); } }
+  .col h3{ font-size:13.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); margin-bottom:12px; }
+  .ph{ display:flex; align-items:center; gap:11px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .ph:last-child{ border-bottom:none; }
+  .ph .dot{ width:13px; height:13px; border-radius:50%; flex:0 0 13px; }
+  .ph .nm{ font-weight:700; font-size:17px; }
+  .ph .st{ margin-left:auto; font-size:14px; font-weight:700; text-align:right; }
+  .hero img{ width:100%; height:340px; object-fit:cover; border-radius:14px; }
+  .hero .cap{ font-size:16.5px; padding:10px 2px 0; }
+  .hero .cap b{ color:var(--navy); }
+  .thumbs{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .thumbs img{ width:100%; height:104px; object-fit:cover; border-radius:10px; }
+  .verdict{ border:1.5px solid var(--line); border-left:7px solid var(--green); border-radius:12px; padding:12px 14px; margin-bottom:11px; }
+  .verdict.wait{ border-left-color:var(--gold); }
+  .verdict .t{ font-weight:800; font-size:17px; }
+  .verdict .s{ color:var(--mut); font-size:14.5px; }
+  .verdict .v{ color:var(--green); font-weight:800; }
+  .verdict.wait .v{ color:#8a5a00; }
+  .facts{ font-size:16px; }
+  .facts div{ display:flex; padding:8px 0; border-bottom:1px solid var(--line); }
+  .facts div:last-child{ border-bottom:none; }
+  .facts .k{ color:var(--mut); width:42%; }
+  .foot{ padding:14px 22px; border-top:1px solid var(--line); color:var(--mut); font-size:14px; display:flex; }
+  .foot b{ color:var(--navy); letter-spacing:.14em; }
+  .foot span{ margin-left:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ All four concepts</a>
+  <div class="note"><b style="color:#fff">Concept 3 — The Wall.</b> Not a phone page at all: a wide board, three columns side by side, made to be read across a room or on a desktop — the Office TV idea, per house. On a phone it stacks; on a screen it spreads.</div>
+  <div class="board">
+    <div class="bhead">
+      <span class="chip"><img src="img/logo.png" alt="Sharma"></span>
+      <div><h1>212 Marion Oaks Golf Way</h1><div class="sub">Florence 1 · Ocala, FL · EXJ Root · Electrical + HVAC</div></div>
+      <span class="chip"><img src="img/logo-exj.png" alt="EXJ Root"></span>
+      <div class="right"><div class="now">NOW: ELECTRICAL ROUGH-IN</div><div class="sub">Updated Thu Nov 19, 2026</div></div>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <h3>Phases</h3>
+        <div class="ph"><span class="dot" style="background:#177245"></span><span class="nm">Electrical Underground</span><span class="st" style="color:#177245">✓ Done</span></div>
+        <div class="ph"><span class="dot" style="background:#177245"></span><span class="nm">Electrical TUG</span><span class="st" style="color:#177245">✓ Passed</span></div>
+        <div class="ph"><span class="dot" style="background:#F0A846"></span><span class="nm">Electrical Rough-in</span><span class="st" style="color:#8a5a00">Running</span></div>
+        <div class="ph"><span class="dot" style="background:#b9c2d0"></span><span class="nm">Electrical Trim</span><span class="st" style="color:#4d5560">Next</span></div>
+        <div class="ph"><span class="dot" style="background:#177245"></span><span class="nm">HVAC Rough</span><span class="st" style="color:#177245">✓ Approved</span></div>
+        <div class="ph"><span class="dot" style="background:#b9c2d0"></span><span class="nm">HVAC Machine &amp; Trims</span><span class="st" style="color:#4d5560">Next</span></div>
+        <h3 style="margin-top:20px">Prints</h3>
+        <div class="facts">
+          <div><span>Master Drawing — Florence 1</span><span style="margin-left:auto;color:#4d5560">9 sheets</span></div>
+          <div><span>Engineered Plans, sealed</span><span style="margin-left:auto;color:#4d5560">9 sheets</span></div>
+          <div><span>Wiring Drawings — D6</span><span style="margin-left:auto;color:#4d5560">Draft</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <h3>Latest proof</h3>
+        <div class="hero"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><div class="cap"><b>TUG complete &amp; passed.</b> Temporary power live — shot at 212 Marion Oaks Golf Way.</div></div>
+        <div class="thumbs">
+          <img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><img src="img/212-underground.jpg" alt="Underground"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler">
+        </div>
+        <div class="cap" style="font-size:14.5px;color:#4d5560;padding-top:8px">10 photos on this job · every photo stamped with address, builder and date</div>
+      </div>
+      <div class="col">
+        <h3>Inspections</h3>
+        <div class="verdict"><div class="t">TUG Power Release <span class="v">✓ PASSED</span></div><div class="s">Electrical · #261544-2026 · Inspector Prinzi</div></div>
+        <div class="verdict"><div class="t">Rough Mechanical <span class="v">✓ APPROVED</span></div><div class="s">HVAC · Thu Nov 19 · Inspector Randy Johnston</div></div>
+        <div class="verdict wait"><div class="t">Rough Electric <span class="v">◷ NEXT</span></div><div class="s">Electrical · requested when rough-in completes</div></div>
+        <h3 style="margin-top:20px">The house</h3>
+        <div class="facts">
+          <div><span class="k">Living</span><span>2,325 SF</span></div>
+          <div><span class="k">Under roof</span><span>3,076 SF</span></div>
+          <div><span class="k">Permit</span><span>BLDR-26-09-23294</span></div>
+          <div><span class="k">HVAC</span><span>3.5 ton</span></div>
+          <div><span class="k">Meter</span><span>Eaton BR · Siemens QP inside</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><b>SHARMATRACK</b><span>Developed by Sanjay Sharma</span></div>
+  </div>
+</div>
+</body>
+</html>

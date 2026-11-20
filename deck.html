@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHARMATRACK — The Deck</title>
+<style>
+  :root{ --navy:#264387; --gold:#F0A846; --ink:#14181f; --mut:#4d5560; --line:#e3e7ee; --green:#177245; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#fff; color:var(--ink); font-size:18px; }
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:430px; margin:0 auto; padding:14px 0 20px; }
+  .back{ color:var(--navy); text-decoration:none; font-size:15px; font-weight:700; padding:0 16px; }
+  .hd{ padding:8px 16px 0; }
+  .hd .logos{ display:flex; align-items:center; }
+  .hd .logos .a{ height:40px; } .hd .logos .b{ height:28px; margin-left:auto; }
+  .hd h1{ font-size:24px; font-weight:800; letter-spacing:-.01em; margin-top:8px; }
+  .hd .sub{ color:var(--mut); font-size:15px; }
+  .deck{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:18px 16px 8px; -webkit-overflow-scrolling:touch; }
+  .card{ flex:0 0 86%; scroll-snap-align:center; border:1.5px solid var(--line); border-radius:22px; overflow:hidden; background:#fff; box-shadow:0 8px 24px rgba(20,30,60,.10); }
+  .card img{ width:100%; height:250px; object-fit:cover; }
+  .card .bd{ padding:16px 18px 18px; }
+  .card .k{ font-size:12.5px; font-weight:800; letter-spacing:.14em; color:#8a5a00; text-transform:uppercase; }
+  .card h2{ font-size:24px; font-weight:800; margin:3px 0 6px; }
+  .pill{ display:inline-block; font-size:13.5px; font-weight:800; padding:5px 11px; border-radius:999px; }
+  .pill.done{ background:#e5f3ec; color:var(--green); } .pill.now{ background:#fdf0da; color:#8a5a00; } .pill.next{ background:#eef1f6; color:var(--mut); }
+  .card ul{ list-style:none; margin-top:11px; }
+  .card li{ padding:5px 0 5px 28px; position:relative; font-size:16px; }
+  .card li::before{ content:"✓"; position:absolute; left:0; top:5px; width:20px; height:20px; border-radius:50%; background:var(--green); color:#fff; font-size:12.5px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .card li.open::before{ content:""; background:#fff; border:2px solid #c3ccd9; }
+  .card .wait{ margin-top:11px; color:var(--mut); font-size:16px; }
+  .dots{ display:flex; gap:7px; justify-content:center; padding:8px 0 2px; }
+  .dots i{ width:9px; height:9px; border-radius:50%; background:#ccd3de; }
+  .dots i.on{ background:var(--navy); }
+  .hint{ text-align:center; color:var(--mut); font-size:14px; }
+  .foot{ padding:16px; text-align:center; color:var(--mut); font-size:14px; }
+  .foot b{ color:var(--navy); letter-spacing:.14em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ All four concepts</a>
+  <div class="hd">
+    <div class="logos"><img class="a" src="img/logo.png" alt="Sharma"><img class="b" src="img/logo-exj.png" alt="EXJ Root"></div>
+    <h1>212 Marion Oaks Golf Way</h1>
+    <div class="sub">Florence 1 · Ocala, FL · Electrical + HVAC · Updated Thu Nov 19</div>
+  </div>
+  <div class="deck" id="deck">
+    <div class="card"><img src="img/212-underground.jpg" alt="Underground"><div class="bd"><div class="k">Phase 1 · Electrical</div><h2>Underground</h2><span class="pill done">✓ COMPLETE</span><ul><li>Conduit run in slab</li><li>Grounding in place</li></ul></div></div>
+    <div class="card"><img src="img/212-tug-complete-wide-shot.jpg" alt="TUG complete"><div class="bd"><div class="k">Phase 2 · Electrical</div><h2>TUG</h2><span class="pill done">✓ COMPLETE · PASSED</span><ul><li>Meter base mounted</li><li>GFCI + grounding complete</li><li>Inspection #261544-2026 — Passed</li></ul></div></div>
+    <div class="card"><img src="img/212-meter-base-open.jpg" alt="Meter base open"><div class="bd"><div class="k">Phase 3 · Electrical</div><h2>Rough-in</h2><span class="pill now">● IN PROGRESS</span><div class="wait">Started Thu Nov 19 — crew on site. Photos land on this card as the work goes in.</div></div></div>
+    <div class="card"><img src="img/212-finished-complete.jpg" alt="Finished work"><div class="bd"><div class="k">Phase 4 · Electrical</div><h2>Trim</h2><span class="pill next">UP NEXT</span><div class="wait">Devices, switches and fixtures — after rough-in passes.</div></div></div>
+    <div class="card"><img src="img/212-hvac-rough-trunk.jpg" alt="Duct trunk"><div class="bd"><div class="k">Phase 5 · HVAC</div><h2>HVAC Rough</h2><span class="pill done">✓ COMPLETE · APPROVED</span><ul><li>Trunk + ductwork roughed</li><li>Air handler area roughed</li><li>Rough Mechanical — Approved Nov 19</li></ul></div></div>
+    <div class="card"><img src="img/212-hvac-rough-air-handler.jpg" alt="Air handler"><div class="bd"><div class="k">Phase 6 · HVAC</div><h2>Machine &amp; Trims</h2><span class="pill next">UP NEXT</span><div class="wait">3.5 ton machine set + grilles after rough-in. Final walk at the end.</div></div></div>
+    <div class="card"><img src="img/212-tug-gfci-and-grounding.jpg" alt="Inspections"><div class="bd"><div class="k">The Record</div><h2>Inspections</h2><span class="pill done">2 PASSED · 0 FAILED</span><ul><li>TUG Preliminary Power — Passed</li><li>Rough Mechanical — Approved Nov 19</li><li class="open">Rough Electric — not yet scheduled</li></ul></div></div>
+  </div>
+  <div class="dots" id="dots"></div>
+  <div class="hint">Swipe sideways — one phase per card</div>
+  <div class="foot"><b>SHARMATRACK</b><br>Developed by Sanjay Sharma</div>
+</div>
+<script>
+  var deck = document.getElementById('deck'), dots = document.getElementById('dots');
+  for(var i = 0; i < deck.children.length; i++){ var d = document.createElement('i'); if(i===0) d.className='on'; dots.appendChild(d); }
+  deck.addEventListener('scroll', function(){
+    var idx = Math.round(deck.scrollLeft / (deck.children[0].offsetWidth + 14));
+    dots.querySelectorAll('i').forEach(function(el, i){ el.className = i === idx ? 'on' : ''; });
+  });
+</script>
+</body>
+</html>
